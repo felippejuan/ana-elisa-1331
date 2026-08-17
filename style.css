@@ -1,6 +1,6 @@
 /* ============================================================================
-   ESTILOS OFICIAIS - FASE 4 V2 (INTEGRAÇÃO VISUAL & TRANSIÇÕES SUTIS)
-   CSS unificado, tokens fechados, transição suave de hero e destaque 1331
+   ESTILOS OFICIAIS - FASE 1 V3 (FUNDAÇÃO VISUAL MÍNIMA ESTÁVEL)
+   CSS unificado, tokens fechados, compensação de scroll e sem sobreposição
    ============================================================================ */
 
 :root {
@@ -12,7 +12,6 @@
   --brown-dark: #1E0C05;
   --cream: #FAF4EB;
   --cream-light: #FDFBF7;
-  --cream-bg: #F5EFE6;
   --white: #FFFFFF;
   --gray-border: rgba(255, 255, 255, 0.12);
   --gray-light: #ECE4DA;
@@ -32,6 +31,9 @@
   --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-title: 'Syne', sans-serif;
   --font-ui: 'Plus Jakarta Sans', sans-serif;
+
+  /* Altura do Header Sticky para Compensação */
+  --header-height: 70px;
 }
 
 /* Reset Mínimo & Consistente */
@@ -54,6 +56,11 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   width: 100%;
+}
+
+/* Compensação de Âncoras para Não Ficar Escondido sob Header Sticky */
+section[id], header[id] {
+  scroll-margin-top: calc(var(--header-height) + 12px);
 }
 
 img {
@@ -134,14 +141,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   z-index: 100;
   background-color: var(--brown-dark);
   border-bottom: 1px solid rgba(252, 189, 0, 0.2);
+  min-height: var(--header-height);
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .header-logo .logo-img {
@@ -205,11 +213,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   transition: all 0.2s ease;
 }
 
-/* ==================== 1. HERO (FASE 4 V2: TRANSIÇÃO & DESTAQUE 1331) ==================== */
+/* ==================== 1. HERO ==================== */
 .hero-section {
   position: relative;
   background-color: var(--red);
-  padding: clamp(3rem, 6vw, 5.2rem) 0 clamp(2.5rem, 5vw, 4rem);
+  padding: clamp(3rem, 6vw, 5rem) 0;
 }
 
 .hero-container {
@@ -248,7 +256,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   flex-wrap: wrap;
 }
 
-/* Destaque Tipográfico Marcante do 1331 */
 .badge-numero-hero {
   display: inline-block;
   color: var(--brown-dark);
@@ -294,25 +301,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border-radius: var(--radius-card);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
   display: block;
-}
-
-/* Transição Sutil */
-.hero-wave-transition {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  pointer-events: none;
-}
-
-.hero-wave-transition svg {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 24px;
 }
 
 /* ==================== 2. HISTÓRIA & MANIFESTO EDITORIAL ==================== */
@@ -465,209 +453,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight: 700;
 }
 
-/* ==================== 3. MINAS GERAIS & TERRITÓRIO ==================== */
-.section-territorio {
-  padding: var(--section-space) 0;
-  background-color: var(--cream-bg);
-  color: var(--brown-dark);
-}
-
-.section-territorio .section-kicker {
-  color: var(--red);
-}
-
-.section-territorio .section-title {
-  color: var(--brown-dark);
-}
-
-.section-territorio .section-subtitle {
-  color: #4A2B1D;
-  font-size: 1.05rem;
-  margin-top: 8px;
-}
-
-.region-chips-wrapper {
-  margin: 24px 0 36px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-}
-
-.region-chips-track {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.chip-btn {
-  background-color: var(--white);
-  border: 1.5px solid var(--gray-form-border);
-  color: var(--brown-dark);
-  font-family: var(--font-ui);
-  font-weight: 700;
-  font-size: 0.88rem;
-  padding: 8px 18px;
-  border-radius: var(--radius-button);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.chip-btn:hover, .chip-btn.active {
-  background-color: var(--red);
-  color: var(--white);
-  border-color: var(--red);
-}
-
-.territorio-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(2rem, 4vw, 3.5rem);
-  align-items: center;
-}
-
-.map-card-box {
-  background-color: var(--white);
-  border-radius: var(--radius-card);
-  padding: 24px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-  border: 1px solid var(--gray-form-border);
-  text-align: center;
-}
-
-.mg-svg-territorio {
-  width: 100%;
-  max-height: 420px;
-  display: block;
-}
-
-.mg-geo-path {
-  fill: #EAE1D5;
-  stroke: var(--brown);
-  stroke-width: 2;
-  cursor: pointer;
-  transition: fill 0.25s ease, filter 0.25s ease;
-}
-
-.mg-geo-path:hover {
-  fill: #D8CCC0;
-}
-
-.mg-geo-path.active {
-  fill: var(--red);
-  stroke: var(--white);
-  stroke-width: 3;
-}
-
-.city-dot {
-  fill: var(--brown);
-  pointer-events: none;
-}
-
-.city-dot.dot-origin {
-  fill: var(--yellow);
-  stroke: var(--brown-dark);
-  stroke-width: 1.5;
-}
-
-.city-label {
-  fill: var(--brown-dark);
-  font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 700;
-  pointer-events: none;
-  text-anchor: middle;
-}
-
-.city-label.label-origin {
-  font-weight: 900;
-  fill: var(--red);
-}
-
-.map-hint {
-  font-size: 0.82rem;
-  color: #6E5343;
-  margin-top: 14px;
-  font-weight: 600;
-}
-
-.region-detail-card {
-  background-color: var(--white);
-  border-radius: var(--radius-card);
-  padding: clamp(24px, 4vw, 36px);
-  border-left: 6px solid var(--red);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  border-top: 1px solid var(--gray-form-border);
-  border-right: 1px solid var(--gray-form-border);
-  border-bottom: 1px solid var(--gray-form-border);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.rdc-tag {
-  font-family: var(--font-ui);
-  font-weight: 800;
-  font-size: 0.74rem;
-  letter-spacing: 0.12em;
-  color: var(--red);
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.rdc-title {
-  font-family: var(--font-title);
-  font-size: 1.65rem;
-  font-weight: 900;
-  color: var(--brown-dark);
-  margin-bottom: 12px;
-}
-
-.rdc-desc {
-  font-size: 1rem;
-  color: #4A2B1D;
-  line-height: 1.6;
-  margin-bottom: 18px;
-}
-
-.rdc-cities-box {
-  background-color: var(--cream-bg);
-  border-radius: var(--radius-sm);
-  padding: 14px 16px;
-  margin-bottom: 18px;
-}
-
-.rdc-cities-box strong {
-  display: block;
-  font-size: 0.82rem;
-  color: var(--brown-dark);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
-}
-
-.rdc-cities-box p {
-  font-size: 0.9rem;
-  color: #5C3A29;
-  line-height: 1.45;
-}
-
-.rdc-status-bar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: var(--red);
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--red);
-  display: inline-block;
-}
-
-/* ==================== 4. COMPROMISSOS & CARTEIRA DE TRABALHO ==================== */
+/* ==================== 3. COMPROMISSOS (BASE LIMPA 2X2) ==================== */
 .section-compromissos {
   padding: var(--section-space) 0;
   background-color: var(--brown-dark);
@@ -685,53 +471,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   max-width: 640px;
 }
 
-.compromissos-integrated-layout {
+.compromissos-grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: clamp(2rem, 4vw, 3.5rem);
-  align-items: start;
-}
-
-.carteira-card-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(252, 189, 0, 0.2);
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
-}
-
-.carteira-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.carteira-caption {
-  padding: 16px 20px;
-  background-color: rgba(30, 12, 5, 0.95);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.carteira-caption strong {
-  display: block;
-  font-family: var(--font-ui);
-  font-size: 0.95rem;
-  color: var(--yellow);
-  margin-bottom: 2px;
-}
-
-.carteira-caption span {
-  font-size: 0.84rem;
-  color: var(--cream);
-  opacity: 0.85;
-  line-height: 1.4;
-}
-
-.compromissos-cards-col {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 
 .compromisso-item {
@@ -740,12 +483,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-card);
-  padding: 20px 24px;
+  padding: 24px;
 }
 
 .comp-num {
   font-family: var(--font-title);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 900;
   color: var(--yellow);
   flex-shrink: 0;
@@ -754,20 +497,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 .comp-content h3 {
   font-family: var(--font-ui);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .comp-content p {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   color: var(--cream);
   opacity: 0.85;
-  line-height: 1.5;
+  line-height: 1.52;
 }
 
-/* ==================== 5. MOBILIZAÇÃO REAL ==================== */
+/* ==================== 4. MOBILIZAÇÃO REAL ==================== */
 .section-mobilizacao {
   padding: var(--section-space) 0;
   background-color: var(--cream);
@@ -890,126 +633,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   transform: translateY(-1px);
 }
 
-/* ==================== 6. MATERIAIS DE CAMPANHA & FIGURINHAS ==================== */
-.section-materiais {
-  padding: var(--section-space) 0;
-  background-color: var(--brown);
-}
-
-.materiais-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.material-gallery-card {
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.material-gallery-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(252, 189, 0, 0.3);
-}
-
-.card-figurinhas {
-  border-color: rgba(37, 211, 102, 0.3);
-}
-
-.mgc-preview {
-  height: 160px;
-  background-color: rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  overflow: hidden;
-}
-
-.preview-stickers {
-  background: linear-gradient(135deg, rgba(37, 211, 102, 0.2) 0%, rgba(30, 12, 5, 0.6) 100%);
-}
-
-.stickers-badge-visual {
-  background-color: #25D366;
-  color: #FFFFFF;
-  padding: 12px 20px;
-  border-radius: var(--radius-button);
-  font-family: var(--font-ui);
-  font-weight: 800;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.mgc-thumb-img {
-  max-height: 100%;
-  width: auto;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-.mgc-body {
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.mgc-body strong {
-  display: block;
-  font-family: var(--font-ui);
-  font-size: 1.05rem;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-
-.mgc-body span {
-  font-size: 0.86rem;
-  color: var(--cream);
-  opacity: 0.8;
-  margin-bottom: 18px;
-  line-height: 1.4;
-}
-
-.btn-download {
-  margin-top: auto;
-  background-color: var(--yellow);
-  color: var(--brown-dark);
-  font-family: var(--font-ui);
-  font-weight: 700;
-  font-size: 0.88rem;
-  padding: 10px 20px;
-  border-radius: var(--radius-button);
-  text-align: center;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.btn-download:hover {
-  background-color: var(--white);
-  transform: translateY(-1px);
-}
-
-.btn-sticker-action {
-  background-color: #25D366;
-  color: #FFFFFF;
-}
-
-.btn-sticker-action:hover {
-  background-color: #1EBE5B;
-  color: #FFFFFF;
-}
-
-/* ==================== 7. FOOTER ==================== */
+/* ==================== 5. FOOTER ==================== */
 .site-footer {
   background-color: var(--brown-dark);
   border-top: 2px solid var(--red);
@@ -1168,32 +792,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
 
   /* Seções empilhadas */
-  .manifesto-container, .territorio-grid, .mobilizacao-container, .compromissos-integrated-layout {
+  .manifesto-container, .mobilizacao-container {
     grid-template-columns: 1fr;
     gap: 28px;
   }
 
-  .carteira-card-box {
-    max-width: 85%;
-    margin: 0 auto;
-  }
-
-  .region-chips-track {
-    flex-wrap: nowrap;
-  }
-
-  .manifesto-card, .region-detail-card, .mob-card {
-    padding: 24px 18px;
-  }
-
-  .materiais-gallery-grid {
+  .compromissos-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  .btn-download {
-    width: 100%;
-    min-height: 48px;
+  .manifesto-card, .mob-card {
+    padding: 24px 18px;
   }
 
   .footer-container {

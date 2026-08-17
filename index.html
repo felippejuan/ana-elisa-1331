@@ -9,7 +9,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ana Elisa 1331 · Deputada Federal">
-  <meta property="og:description" content="Uma nova voz de Minas Gerais no Congresso Nacional. Conheça nossa trajetória, manifesto, mapa de diálogo e compromissos.">
+  <meta property="og:description" content="Uma nova voz de Minas Gerais no Congresso Nacional. Conheça nossa trajetória, manifesto e compromissos.">
   <meta property="og:image" content="./assets/img/og-share.jpg">
 
   <!-- Favicon -->
@@ -39,17 +39,15 @@
 
       <nav class="header-nav" id="headerNav" aria-label="Navegação principal">
         <a href="#historia" class="nav-link">História</a>
-        <a href="#territorio" class="nav-link">Minas Gerais</a>
         <a href="#compromissos" class="nav-link">Compromissos</a>
         <a href="#mobilizacao" class="nav-link">Mobilização</a>
-        <a href="#materiais" class="nav-link">Materiais</a>
         <a href="#mobilizacao" class="btn-nav-action">Fazer parte</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- ======================== 1. HERO SECTION (FASE 4: PRESENÇA TIPOGRÁFICA 1331 & TRANSIÇÃO SUTIL) ======================== -->
+    <!-- ======================== 1. HERO SECTION ======================== -->
     <section class="hero-section" id="inicio">
       <div class="container hero-container">
         
@@ -87,16 +85,9 @@
         </div>
 
       </div>
-
-      <!-- Divisor Geométrico Sutil (Transição Elegante) -->
-      <div class="hero-wave-transition" aria-hidden="true">
-        <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
-          <path d="M0,0 C300,30 900,30 1200,0 L1200,40 L0,40 Z" fill="#31170C"></path>
-        </svg>
-      </div>
     </section>
 
-    <!-- ======================== 2. HISTÓRIA & MANIFESTO EDITORIAL (CONGELADO) ======================== -->
+    <!-- ======================== 2. HISTÓRIA & MANIFESTO EDITORIAL ======================== -->
     <section class="section-manifesto" id="historia">
       <div class="container manifesto-container">
         
@@ -167,105 +158,7 @@
       </div>
     </section>
 
-    <!-- ======================== 3. MINAS GERAIS: MAPA & TERRITÓRIO (CONGELADO) ======================== -->
-    <section class="section-territorio" id="territorio">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-kicker">PRESENÇA TERRITORIAL</span>
-          <h2 class="section-title">MINAS INTEIRA, CIDADE POR CIDADE</h2>
-          <p class="section-subtitle">Nascida no Centro-Oeste, com raízes em Divinópolis e compromisso com o desenvolvimento de todas as regiões de Minas Gerais.</p>
-        </div>
-
-        <!-- Seletor em Chips -->
-        <div class="region-chips-wrapper">
-          <div class="region-chips-track" id="regionChips">
-            <button class="chip-btn active" data-region="centro-oeste">📍 Centro-Oeste (Origem)</button>
-            <button class="chip-btn" data-region="rmbh">🏢 BH & Região Metropolitana</button>
-            <button class="chip-btn" data-region="triangulo">🚜 Triângulo & Alto Paranaíba</button>
-            <button class="chip-btn" data-region="zona-mata">⛰️ Zona da Mata & Vertentes</button>
-            <button class="chip-btn" data-region="norte">☀️ Norte de Minas</button>
-            <button class="chip-btn" data-region="sul">☕ Sul de Minas</button>
-            <button class="chip-btn" data-region="vales">💎 Jequitinhonha & Mucuri</button>
-            <button class="chip-btn" data-region="rio-doce">🏭 Vale do Aço & Rio Doce</button>
-          </div>
-        </div>
-
-        <div class="territorio-grid">
-          
-          <!-- Mapa SVG Geográfico de Minas Gerais -->
-          <div class="mapa-visual-wrapper">
-            <div class="map-card-box">
-              <svg viewBox="0 0 600 500" class="mg-svg-territorio" id="mgSvgTerritorio" aria-label="Mapa estilizado de Minas Gerais com macrorregiões">
-                <!-- Norte -->
-                <path id="geo-norte" class="mg-geo-path" data-region="norte" d="M220,40 L380,30 L450,110 L380,180 L230,170 L190,100 Z" />
-                <circle cx="310" cy="110" r="4.5" class="city-dot" />
-                <text x="310" y="132" class="city-label">Montes Claros</text>
-
-                <!-- Vales -->
-                <path id="geo-vales" class="mg-geo-path" data-region="vales" d="M380,110 L540,100 L560,200 L440,230 L380,180 Z" />
-                <circle cx="460" cy="160" r="4.5" class="city-dot" />
-                <text x="460" y="182" class="city-label">Teófilo Otoni</text>
-
-                <!-- Triângulo -->
-                <path id="geo-triangulo" class="mg-geo-path" data-region="triangulo" d="M50,170 L210,160 L230,260 L140,320 L40,240 Z" />
-                <circle cx="130" cy="230" r="4.5" class="city-dot" />
-                <text x="130" y="252" class="city-label">Uberlândia</text>
-
-                <!-- Centro-Oeste (Origem - Ativo) -->
-                <path id="geo-centro-oeste" class="mg-geo-path active" data-region="centro-oeste" d="M210,180 L320,190 L310,310 L190,320 L210,240 Z" />
-                <circle cx="250" cy="250" r="6" class="city-dot dot-origin" />
-                <text x="250" y="272" class="city-label label-origin">Divinópolis (Origem)</text>
-
-                <!-- RMBH -->
-                <path id="geo-rmbh" class="mg-geo-path" data-region="rmbh" d="M320,200 L420,210 L410,310 L310,300 Z" />
-                <circle cx="360" cy="250" r="4.5" class="city-dot" />
-                <text x="360" y="272" class="city-label">Belo Horizonte</text>
-
-                <!-- Vale do Aço / Rio Doce -->
-                <path id="geo-rio-doce" class="mg-geo-path" data-region="rio-doce" d="M420,210 L540,200 L520,310 L420,300 Z" />
-                <circle cx="470" cy="255" r="4.5" class="city-dot" />
-                <text x="470" y="277" class="city-label">Ipatinga / Gov. Valadares</text>
-
-                <!-- Sul de Minas -->
-                <path id="geo-sul" class="mg-geo-path" data-region="sul" d="M160,330 L320,320 L310,440 L170,430 Z" />
-                <circle cx="235" cy="380" r="4.5" class="city-dot" />
-                <text x="235" y="402" class="city-label">Pouso Alegre</text>
-
-                <!-- Zona da Mata -->
-                <path id="geo-zona-mata" class="mg-geo-path" data-region="zona-mata" d="M320,320 L480,310 L460,430 L320,430 Z" />
-                <circle cx="390" cy="370" r="4.5" class="city-dot" />
-                <text x="390" y="392" class="city-label">Juiz de Fora</text>
-              </svg>
-              <div class="map-hint">Clique nas regiões do mapa ou nos botões acima para conhecer a pauta regional</div>
-            </div>
-          </div>
-
-          <!-- Painel Editorial da Região Selecionada -->
-          <div class="territorio-info-wrapper">
-            <div class="region-detail-card" id="regionDetailCard">
-              <span class="rdc-tag" id="regionTag">Berço da Candidata</span>
-              <h3 class="rdc-title" id="regionTitle">Centro-Oeste (Origem)</h3>
-              <p class="rdc-desc" id="regionDesc">
-                Divinópolis é a terra natal de Ana Elisa, onde começou sua vivência com a realidade dos bairros trabalhadores, o transporte público e a educação.
-              </p>
-
-              <div class="rdc-cities-box">
-                <strong>Principais Municípios da Região:</strong>
-                <p id="regionCities">Divinópolis, Itaúna, Nova Serrana, Formiga, Pará de Minas, Lagoa da Prata, Bom Despacho, Oliveira, Cláudio, Santo Antônio do Monte...</p>
-              </div>
-
-              <div class="rdc-status-bar">
-                <span class="status-dot"></span>
-                <span id="regionStatus">Território prioritário de diálogo</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================== 4. COMPROMISSOS & CARTEIRA DE TRABALHO (CONGELADO) ======================== -->
+    <!-- ======================== 3. COMPROMISSOS POLÍTICOS (BASE LIMPA SEM FOTO) ======================== -->
     <section class="section-compromissos" id="compromissos">
       <div class="container">
         <div class="section-header">
@@ -274,62 +167,43 @@
           <p class="section-subtitle">Pautas prioritárias para os direitos da classe trabalhadora e o desenvolvimento social de Minas Gerais.</p>
         </div>
 
-        <div class="compromissos-integrated-layout">
-          
-          <div class="carteira-visual-col">
-            <div class="carteira-card-box">
-              <img 
-                src="./assets/img/ana-elisa-carteira-trabalho.jpg" 
-                alt="Ana Elisa segurando a Carteira de Trabalho em defesa dos direitos trabalhistas" 
-                class="carteira-img"
-                loading="lazy"
-              >
-              <div class="carteira-caption">
-                <strong>Defesa da Classe Trabalhadora</strong>
-                <span>Pelo Fim da Escala 6x1, salário digno e tempo para viver com a família.</span>
-              </div>
+        <div class="compromissos-grid">
+          <div class="compromisso-item">
+            <span class="comp-num">01</span>
+            <div class="comp-content">
+              <h3>Trabalho Digno & Fim da Escala 6x1</h3>
+              <p>Apoio integral à redução da jornada de trabalho sem redução salarial e garantia de proteção previdenciária e direitos para trabalhadores de aplicativos.</p>
             </div>
           </div>
 
-          <div class="compromissos-cards-col">
-            <div class="compromisso-item">
-              <span class="comp-num">01</span>
-              <div class="comp-content">
-                <h3>Trabalho Digno & Fim da Escala 6x1</h3>
-                <p>Apoio integral à redução da jornada de trabalho sem redução salarial e garantia de proteção previdenciária e direitos para trabalhadores de aplicativos.</p>
-              </div>
-            </div>
-
-            <div class="compromisso-item">
-              <span class="comp-num">02</span>
-              <div class="comp-content">
-                <h3>Educação Pública, IFs & Passe Livre</h3>
-                <p>Destinação de recursos federais para as Universidades e IFs de Minas Gerais, ampliação do Pé-de-Meia e criação do Fundo Nacional de Apoio ao Passe Livre Estudantil.</p>
-              </div>
-            </div>
-
-            <div class="compromisso-item">
-              <span class="comp-num">03</span>
-              <div class="comp-content">
-                <h3>Mulheres & Igualdade Racial</h3>
-                <p>Fortalecimento das Casas da Mulher Brasileira em MG, linhas de crédito facilitadas para mulheres chefes de família e defesa intransigente das cotas no serviço público.</p>
-              </div>
-            </div>
-
-            <div class="compromisso-item">
-              <span class="comp-num">04</span>
-              <div class="comp-content">
-                <h3>Cultura Viva, Meio Ambiente & Interior</h3>
-                <p>Descentralização de recursos culturais para os municípios do interior, fiscalização rigorosa da mineração com proteção das bacias hídricas e apoio à agricultura familiar.</p>
-              </div>
+          <div class="compromisso-item">
+            <span class="comp-num">02</span>
+            <div class="comp-content">
+              <h3>Educação Pública, IFs & Passe Livre</h3>
+              <p>Destinação de recursos federais para as Universidades e IFs de Minas Gerais, ampliação do Pé-de-Meia e criação do Fundo Nacional de Apoio ao Passe Livre Estudantil.</p>
             </div>
           </div>
 
+          <div class="compromisso-item">
+            <span class="comp-num">03</span>
+            <div class="comp-content">
+              <h3>Mulheres & Igualdade Racial</h3>
+              <p>Fortalecimento das Casas da Mulher Brasileira em MG, linhas de crédito facilitadas para mulheres chefes de família e defesa intransigente das cotas no serviço público.</p>
+            </div>
+          </div>
+
+          <div class="compromisso-item">
+            <span class="comp-num">04</span>
+            <div class="comp-content">
+              <h3>Cultura Viva, Meio Ambiente & Interior</h3>
+              <p>Descentralização de recursos culturais para os municípios do interior, fiscalização rigorosa da mineração com proteção das bacias hídricas e apoio à agricultura familiar.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================== 5. MOBILIZAÇÃO REAL (CONGELADO) ======================== -->
+    <!-- ======================== 4. MOBILIZAÇÃO REAL ======================== -->
     <section class="section-mobilizacao" id="mobilizacao">
       <div class="container mobilizacao-container">
         
@@ -376,67 +250,6 @@
           </form>
         </div>
 
-      </div>
-    </section>
-
-    <!-- ======================== 6. MATERIAIS DE CAMPANHA & FIGURINHAS (CONGELADO) ======================== -->
-    <section class="section-materiais" id="materiais">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-kicker">MATERIAIS DE CAMPANHA</span>
-          <h2 class="section-title">BAIXE E COMPARTILHE</h2>
-          <p class="section-subtitle">Peças digitais oficiais em alta resolução para divulgação no WhatsApp, redes sociais ou impressão.</p>
-        </div>
-
-        <div class="materiais-gallery-grid">
-          
-          <div class="material-gallery-card card-figurinhas">
-            <div class="mgc-preview preview-stickers">
-              <div class="stickers-badge-visual">
-                <span>💬 STICKERS</span>
-              </div>
-            </div>
-            <div class="mgc-body">
-              <strong>Figurinhas do WhatsApp</strong>
-              <span>Pacote oficial de stickers para usar nas conversas e grupos</span>
-              <a href="https://sticker.ly/s/anaelisa1331" target="_blank" rel="noopener" class="btn-download btn-sticker-action" aria-label="Abrir pacote de figurinhas no Sticker.ly">Baixar Figurinhas</a>
-            </div>
-          </div>
-
-          <div class="material-gallery-card">
-            <div class="mgc-preview preview-santinho">
-              <img src="./assets/img/og-share.jpg" alt="Miniatura do Santinho Digital Oficial" class="mgc-thumb-img">
-            </div>
-            <div class="mgc-body">
-              <strong>Santinho Digital Oficial</strong>
-              <span>Formatado para WhatsApp e Stories (JPG · 71 KB)</span>
-              <a href="./assets/img/og-share.jpg" download="santinho-ana-elisa-1331.jpg" class="btn-download" aria-label="Baixar Santinho Digital Oficial">Baixar arquivo</a>
-            </div>
-          </div>
-
-          <div class="material-gallery-card">
-            <div class="mgc-preview preview-logo">
-              <img src="./assets/img/ana-elisa-logo.png" alt="Miniatura do Logotipo Oficial" class="mgc-thumb-img">
-            </div>
-            <div class="mgc-body">
-              <strong>Logotipo Oficial da Campanha</strong>
-              <span>Fundo transparente em alta resolução (PNG · 183 KB)</span>
-              <a href="./assets/img/ana-elisa-logo.png" download="logo-ana-elisa-1331.png" class="btn-download" aria-label="Baixar Logotipo Oficial">Baixar arquivo</a>
-            </div>
-          </div>
-
-          <div class="material-gallery-card">
-            <div class="mgc-preview preview-foto">
-              <img src="./assets/img/ana-elisa-foto.png" alt="Miniatura da Foto Oficial" class="mgc-thumb-img">
-            </div>
-            <div class="mgc-body">
-              <strong>Foto Oficial da Candidata</strong>
-              <span>Retrato em alta definição (PNG · 1.9 MB)</span>
-              <a href="./assets/img/ana-elisa-foto.png" download="foto-ana-elisa-1331.png" class="btn-download" aria-label="Baixar Foto Oficial">Baixar arquivo</a>
-            </div>
-          </div>
-
-        </div>
       </div>
     </section>
   </main>
