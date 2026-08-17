@@ -1,7 +1,9 @@
 # Release Notes Oficial — Versão 2.0 (Ana Elisa 1331)
 **Documento:** `docs/release/v2-release-notes.md`  
 **Data:** 17/08/2026  
-**Status:** Versão Pronta para Publicação em Produção
+**URL Publicada:** https://felippejuan.github.io/ana-elisa-1331/  
+**Branch de Merge:** `feature/fase-05-red-team` -> `main`  
+**Status:** ✅ **Publicado e Operacional em Produção**
 
 ---
 
