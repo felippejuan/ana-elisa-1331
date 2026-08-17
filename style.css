@@ -1,11 +1,12 @@
 /* ============================================================================
-   FASE 2: HERO RESPONSIVO & PROPORCIONAL - ANA ELISA 1331
-   CSS limpo, sem sobreposições, sem badges artificiais e com tokens fechados
+   FASE 3: CONTEÚDO EDITORIAL (HISTÓRIA, MANIFESTO & COMPROMISSOS)
+   Estilização limpa, sem emojis, sem excesso de cards e com tokens fechados
    ============================================================================ */
 
 :root {
   /* Tokens de Cores */
   --red: #DE0021;
+  --red-dark: #A50018;
   --yellow: #FCBD00;
   --brown: #31170C;
   --brown-dark: #1E0C05;
@@ -13,6 +14,7 @@
   --cream-light: #FDFBF7;
   --white: #FFFFFF;
   --gray-border: rgba(255, 255, 255, 0.12);
+  --gray-light: #ECE4DA;
   
   /* Tokens Estruturais */
   --content-width: 1180px;
@@ -91,7 +93,7 @@ a:focus-visible, button:focus-visible {
   cursor: pointer;
   border: 0;
   transition: all 0.2s ease;
-  min-height: 48px; /* Altura mínima de 48px respeitada */
+  min-height: 48px;
   text-align: center;
 }
 
@@ -117,7 +119,7 @@ a:focus-visible, button:focus-visible {
   transform: translateY(-1px);
 }
 
-/* ==================== 1. HEADER ==================== */
+/* ==================== HEADER ==================== */
 .site-header {
   position: sticky;
   top: 0;
@@ -195,11 +197,10 @@ a:focus-visible, button:focus-visible {
   transition: all 0.2s ease;
 }
 
-/* ==================== 2. HERO RESPONSIVO (FASE 2) ==================== */
+/* ==================== 1. HERO (FASE 2 CONGELADA) ==================== */
 .hero-section {
   background-color: var(--red);
   padding: clamp(3rem, 6vw, 5rem) 0;
-  position: relative;
 }
 
 .hero-container {
@@ -275,21 +276,217 @@ a:focus-visible, button:focus-visible {
   display: block;
 }
 
-/* ==================== 3. PLACEHOLDERS DAS PRÓXIMAS FASES ==================== */
-.section-foundation {
+/* ==================== 2. HISTÓRIA & MANIFESTO EDITORIAL (FASE 3) ==================== */
+.section-manifesto {
   padding: var(--section-space) 0;
-  border-bottom: 1px solid var(--gray-border);
+  background-color: var(--brown);
+}
+
+.manifesto-container {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: flex-start;
 }
 
 .section-kicker {
   display: inline-block;
   font-family: var(--font-ui);
   font-weight: 800;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   letter-spacing: 0.15em;
   color: var(--yellow);
   margin-bottom: 8px;
   text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  line-height: 1.15;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.bio-lead {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 14px 0 24px;
+  color: #FFF0E6;
+  max-width: 520px;
+}
+
+.bio-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 520px;
+}
+
+.bio-item {
+  display: flex;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(252, 189, 0, 0.18);
+  border-radius: var(--radius-card);
+  padding: 16px 20px;
+}
+
+.bio-bullet {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--yellow);
+  flex-shrink: 0;
+}
+
+.bio-item strong {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.bio-item p {
+  font-size: 0.92rem;
+  color: var(--cream);
+  opacity: 0.85;
+  line-height: 1.45;
+}
+
+.manifesto-card {
+  background-color: var(--cream-light);
+  color: var(--brown-dark);
+  border-radius: var(--radius-card);
+  padding: clamp(24px, 4vw, 40px);
+  border-top: 6px solid var(--red);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
+
+.manifesto-tag {
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: var(--red);
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.manifesto-heading {
+  font-family: var(--font-title);
+  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: var(--red);
+}
+
+.manifesto-text p {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  margin-bottom: 12px;
+  color: #381E11;
+}
+
+.manifesto-text strong {
+  color: var(--red);
+}
+
+.manifesto-quote {
+  font-family: var(--font-ui);
+  font-style: italic;
+  font-weight: 700;
+  background: var(--gray-light);
+  border-left: 4px solid var(--red);
+  padding: 14px 18px;
+  margin: 18px 0 14px;
+  color: var(--brown-dark);
+  font-size: 0.96rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.manifesto-sign {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(49, 23, 12, 0.2);
+}
+
+.manifesto-sign strong {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  display: block;
+}
+
+.manifesto-sign span {
+  font-size: 0.82rem;
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* ==================== 3. COMPROMISSOS POLÍTICOS (FASE 3) ==================== */
+.section-compromissos {
+  padding: var(--section-space) 0;
+  background-color: var(--brown-dark);
+}
+
+.section-header {
+  margin-bottom: 36px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--cream);
+  opacity: 0.85;
+  margin-top: 8px;
+  max-width: 640px;
+}
+
+.compromissos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.compromisso-item {
+  display: flex;
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-card);
+  padding: 24px;
+}
+
+.comp-num {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--yellow);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.comp-content h3 {
+  font-family: var(--font-ui);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.comp-content p {
+  font-size: 0.94rem;
+  color: var(--cream);
+  opacity: 0.85;
+  line-height: 1.52;
+}
+
+/* ==================== 4. PLACEHOLDERS PRÓXIMAS FASES ==================== */
+.section-foundation {
+  padding: var(--section-space) 0;
+  border-bottom: 1px solid var(--gray-border);
 }
 
 .section-foundation h2 {
@@ -305,7 +502,7 @@ a:focus-visible, button:focus-visible {
   opacity: 0.85;
 }
 
-/* ==================== 4. FOOTER ==================== */
+/* ==================== 5. FOOTER ==================== */
 .site-footer {
   background-color: var(--brown-dark);
   border-top: 2px solid var(--red);
@@ -405,7 +602,7 @@ a:focus-visible, button:focus-visible {
     margin-top: 6px;
   }
 
-  /* Hero Mobile Intencional & Proporcional */
+  /* Hero Mobile Intencional */
   .hero-section {
     padding: 2.5rem 0 3.5rem;
   }
@@ -417,12 +614,12 @@ a:focus-visible, button:focus-visible {
   }
 
   .hero-image-wrapper {
-    order: -1; /* Foto no topo no mobile */
+    order: -1;
     margin-bottom: 6px;
   }
 
   .hero-photo {
-    max-width: 76%; /* Dentro da faixa exata de 70% a 82% */
+    max-width: 76%;
     margin: 0 auto;
     border-radius: var(--radius-card);
   }
@@ -455,6 +652,21 @@ a:focus-visible, button:focus-visible {
   .hero-actions .btn {
     width: 100%;
     min-height: 48px;
+  }
+
+  /* Fase 3 no Mobile: Empilhamento Limpo */
+  .manifesto-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .compromissos-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .manifesto-card {
+    padding: 24px 18px;
   }
 
   .footer-container {
