@@ -1,8 +1,9 @@
 # Release Checklist Oficial — Versão Release Candidate (Ana Elisa 1331)
 **Documento:** `docs/06_release_checklist.md`  
 **Data:** 17/08/2026  
-**Branch:** `feature/fase-05-release`  
-**Status Geral:** ✅ **PASSOU EM 100% DOS CRITÉRIOS**
+**Branch:** `feature/fase-05-release` -> `main`  
+**URL Publicada:** https://felippejuan.github.io/ana-elisa-1331/  
+**Status Geral:** ✅ **PASSOU EM 100% DOS CRITÉRIOS (21/21 APROVADOS)**
 
 ---
 
