@@ -1,6 +1,6 @@
 /* ============================================================================
-   FASE 5: RELEASE CANDIDATE - ANA ELISA 1331
-   CSS unificado, tokens fechados, design editorial, responsivo e limpo
+   ESTILOS OFICIAIS - FASE 1 (MAPA TERRITORIAL DE MINAS GERAIS)
+   CSS unificado, tokens fechados, mapa SVG responsivo e sem overflow
    ============================================================================ */
 
 :root {
@@ -12,6 +12,7 @@
   --brown-dark: #1E0C05;
   --cream: #FAF4EB;
   --cream-light: #FDFBF7;
+  --cream-bg: #F5EFE6;
   --white: #FFFFFF;
   --gray-border: rgba(255, 255, 255, 0.12);
   --gray-light: #ECE4DA;
@@ -151,7 +152,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 22px;
 }
 
 .nav-link {
@@ -204,7 +205,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   transition: all 0.2s ease;
 }
 
-/* ==================== 1. HERO (CONGELADO) ==================== */
+/* ==================== 1. HERO ==================== */
 .hero-section {
   background-color: var(--red);
   padding: clamp(3rem, 6vw, 5rem) 0;
@@ -283,7 +284,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   display: block;
 }
 
-/* ==================== 2. HISTÓRIA & MANIFESTO EDITORIAL (CONGELADO) ==================== */
+/* ==================== 2. HISTÓRIA & MANIFESTO EDITORIAL ==================== */
 .section-manifesto {
   padding: var(--section-space) 0;
   background-color: var(--brown);
@@ -433,7 +434,209 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight: 700;
 }
 
-/* ==================== 3. COMPROMISSOS (CONGELADO) ==================== */
+/* ==================== 3. MINAS GERAIS & TERRITÓRIO (FASE 1 V2) ==================== */
+.section-territorio {
+  padding: var(--section-space) 0;
+  background-color: var(--cream-bg);
+  color: var(--brown-dark);
+}
+
+.section-territorio .section-kicker {
+  color: var(--red);
+}
+
+.section-territorio .section-title {
+  color: var(--brown-dark);
+}
+
+.section-territorio .section-subtitle {
+  color: #4A2B1D;
+  font-size: 1.05rem;
+  margin-top: 8px;
+}
+
+.region-chips-wrapper {
+  margin: 24px 0 36px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.region-chips-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip-btn {
+  background-color: var(--white);
+  border: 1.5px solid var(--gray-form-border);
+  color: var(--brown-dark);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 8px 18px;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.chip-btn:hover, .chip-btn.active {
+  background-color: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+}
+
+.territorio-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.map-card-box {
+  background-color: var(--white);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--gray-form-border);
+  text-align: center;
+}
+
+.mg-svg-territorio {
+  width: 100%;
+  max-height: 420px;
+  display: block;
+}
+
+.mg-geo-path {
+  fill: #EAE1D5;
+  stroke: var(--brown);
+  stroke-width: 2;
+  cursor: pointer;
+  transition: fill 0.25s ease, filter 0.25s ease;
+}
+
+.mg-geo-path:hover {
+  fill: #D8CCC0;
+}
+
+.mg-geo-path.active {
+  fill: var(--red);
+  stroke: var(--white);
+  stroke-width: 3;
+}
+
+.city-dot {
+  fill: var(--brown);
+  pointer-events: none;
+}
+
+.city-dot.dot-origin {
+  fill: var(--yellow);
+  stroke: var(--brown-dark);
+  stroke-width: 1.5;
+}
+
+.city-label {
+  fill: var(--brown-dark);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+.city-label.label-origin {
+  font-weight: 900;
+  fill: var(--red);
+}
+
+.map-hint {
+  font-size: 0.82rem;
+  color: #6E5343;
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+.region-detail-card {
+  background-color: var(--white);
+  border-radius: var(--radius-card);
+  padding: clamp(24px, 4vw, 36px);
+  border-left: 6px solid var(--red);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-top: 1px solid var(--gray-form-border);
+  border-right: 1px solid var(--gray-form-border);
+  border-bottom: 1px solid var(--gray-form-border);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.rdc-tag {
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.rdc-title {
+  font-family: var(--font-title);
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: var(--brown-dark);
+  margin-bottom: 12px;
+}
+
+.rdc-desc {
+  font-size: 1rem;
+  color: #4A2B1D;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.rdc-cities-box {
+  background-color: var(--cream-bg);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.rdc-cities-box strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--brown-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.rdc-cities-box p {
+  font-size: 0.9rem;
+  color: #5C3A29;
+  line-height: 1.45;
+}
+
+.rdc-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--red);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--red);
+  display: inline-block;
+}
+
+/* ==================== 4. COMPROMISSOS ==================== */
 .section-compromissos {
   padding: var(--section-space) 0;
   background-color: var(--brown-dark);
@@ -490,7 +693,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   line-height: 1.52;
 }
 
-/* ==================== 4. MOBILIZAÇÃO REAL (CONGELADO) ==================== */
+/* ==================== 5. MOBILIZAÇÃO REAL ==================== */
 .section-mobilizacao {
   padding: var(--section-space) 0;
   background-color: var(--cream);
@@ -613,7 +816,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   transform: translateY(-1px);
 }
 
-/* ==================== 5. MATERIAIS OFICIAIS (FASE 5) ==================== */
+/* ==================== 6. MATERIAIS OFICIAIS ==================== */
 .section-materiais {
   padding: var(--section-space) 0;
   background-color: var(--brown);
@@ -679,7 +882,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   transform: translateY(-1px);
 }
 
-/* ==================== 6. FOOTER ==================== */
+/* ==================== 7. FOOTER ==================== */
 .site-footer {
   background-color: var(--brown-dark);
   border-top: 2px solid var(--red);
@@ -832,9 +1035,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
 
   /* Seções empilhadas */
-  .manifesto-container, .mobilizacao-container {
+  .manifesto-container, .territorio-grid, .mobilizacao-container {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+
+  .region-chips-track {
+    flex-wrap: nowrap;
   }
 
   .compromissos-grid {
@@ -842,7 +1049,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     gap: 16px;
   }
 
-  .manifesto-card, .mob-card {
+  .manifesto-card, .region-detail-card, .mob-card {
     padding: 24px 18px;
   }
 
