@@ -1,6 +1,6 @@
 /* ============================================================================
-   ESTILOS OFICIAIS - FASE 1 (MAPA TERRITORIAL DE MINAS GERAIS)
-   CSS unificado, tokens fechados, mapa SVG responsivo e sem overflow
+   ESTILOS OFICIAIS - FASE 2 V2 (CARTEIRA DE TRABALHO EM COMPROMISSOS)
+   CSS unificado, tokens fechados, grid integrado e responsividade perfeita
    ============================================================================ */
 
 :root {
@@ -434,7 +434,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight: 700;
 }
 
-/* ==================== 3. MINAS GERAIS & TERRITÓRIO (FASE 1 V2) ==================== */
+/* ==================== 3. MINAS GERAIS & TERRITÓRIO ==================== */
 .section-territorio {
   padding: var(--section-space) 0;
   background-color: var(--cream-bg);
@@ -636,7 +636,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   display: inline-block;
 }
 
-/* ==================== 4. COMPROMISSOS ==================== */
+/* ==================== 4. COMPROMISSOS & CARTEIRA DE TRABALHO (FASE 2 V2) ==================== */
 .section-compromissos {
   padding: var(--section-space) 0;
   background-color: var(--brown-dark);
@@ -654,10 +654,53 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   max-width: 640px;
 }
 
-.compromissos-grid {
+.compromissos-integrated-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.carteira-card-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(252, 189, 0, 0.2);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+}
+
+.carteira-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.carteira-caption {
+  padding: 16px 20px;
+  background-color: rgba(30, 12, 5, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.carteira-caption strong {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  color: var(--yellow);
+  margin-bottom: 2px;
+}
+
+.carteira-caption span {
+  font-size: 0.84rem;
+  color: var(--cream);
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+.compromissos-cards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .compromisso-item {
@@ -666,12 +709,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-card);
-  padding: 24px;
+  padding: 20px 24px;
 }
 
 .comp-num {
   font-family: var(--font-title);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 900;
   color: var(--yellow);
   flex-shrink: 0;
@@ -680,17 +723,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 .comp-content h3 {
   font-family: var(--font-ui);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .comp-content p {
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   color: var(--cream);
   opacity: 0.85;
-  line-height: 1.52;
+  line-height: 1.5;
 }
 
 /* ==================== 5. MOBILIZAÇÃO REAL ==================== */
@@ -1035,18 +1078,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
 
   /* Seções empilhadas */
-  .manifesto-container, .territorio-grid, .mobilizacao-container {
+  .manifesto-container, .territorio-grid, .mobilizacao-container, .compromissos-integrated-layout {
     grid-template-columns: 1fr;
     gap: 28px;
   }
 
-  .region-chips-track {
-    flex-wrap: nowrap;
+  .carteira-card-box {
+    max-width: 85%; /* Largura entre 70% e 90% no mobile */
+    margin: 0 auto;
   }
 
-  .compromissos-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .region-chips-track {
+    flex-wrap: nowrap;
   }
 
   .manifesto-card, .region-detail-card, .mob-card {
