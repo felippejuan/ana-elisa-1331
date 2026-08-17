@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ana Elisa 1331 · Deputada Federal · Minas Gerais</title>
-  <meta name="description" content="Minas quer mais. Conheça Ana Elisa (1331), mulher negra, estudante universitária e filha de Divinópolis. Uma nova voz de Minas no Congresso ao lado de Lula.">
+  <meta name="description" content="Minas quer mais. Conheça Ana Elisa (1331), estudante universitária e liderança jovem de Divinópolis.">
 
-  <!-- Open Graph -->
+  <!-- Open Graph Básico -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ana Elisa 1331 · Deputada Federal">
-  <meta property="og:description" content="Uma nova voz de Minas no Congresso Nacional. Conheça nossa trajetória, compromissos e participe da mobilização.">
+  <meta property="og:description" content="Uma nova voz de Minas Gerais no Congresso Nacional.">
   <meta property="og:image" content="./assets/img/og-share.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="./assets/img/ana-elisa-logo.png">
 
-  <!-- Google Fonts: Syne + Plus Jakarta Sans + Open Sans -->
+  <!-- Tipografia: Syne + Plus Jakarta Sans + Open Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
@@ -24,20 +24,20 @@
 </head>
 <body>
 
-  <!-- ======================== HEADER ======================== -->
-  <header class="site-header">
+  <!-- ======================== HEADER BÁSICO ======================== -->
+  <header class="site-header" id="topo">
     <div class="container header-container">
       <a href="#topo" class="header-logo" aria-label="Ana Elisa 1331">
         <img src="./assets/img/ana-elisa-logo.png" alt="Ana Elisa 1331" class="logo-img">
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir navegação" aria-expanded="false">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
 
-      <nav class="header-nav" id="headerNav">
+      <nav class="header-nav" id="headerNav" aria-label="Navegação principal">
         <a href="#historia" class="nav-link">História</a>
         <a href="#compromissos" class="nav-link">Compromissos</a>
         <a href="#mobilizacao" class="nav-link">Mobilização</a>
@@ -47,251 +47,52 @@
     </div>
   </header>
 
-  <main id="topo">
-    <!-- ======================== HERO SECTION ======================== -->
-    <section class="hero-section">
-      <div class="container hero-container">
-        
-        <!-- Imagem no Mobile primeiro / Desktop à direita -->
-        <div class="hero-image-wrapper">
-          <img src="./assets/img/ana-elisa-foto.png" alt="Ana Elisa" class="hero-photo">
-        </div>
-
-        <!-- Conteúdo Textual -->
-        <div class="hero-content">
-          <div class="hero-slogan">
-            <img src="./assets/img/slogan.png" alt="Minas quer +" class="slogan-img">
-          </div>
-
-          <h1 class="hero-title">
-            Ana Elisa <span class="text-number">1331</span>
-          </h1>
-
-          <p class="hero-tagline">
-            Uma nova voz de Minas no Congresso.
-          </p>
-
-          <p class="hero-description">
-            Mulher negra, 21 anos, estudante universitária e filha de Divinópolis. Pronta para defender a classe trabalhadora, o fim da escala 6x1 e a educação pública em Brasília ao lado do presidente Lula.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#historia" class="btn btn-secondary">Conheça a Ana</a>
-            <a href="#mobilizacao" class="btn btn-primary">Faça parte</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================== MANIFESTO & HISTÓRIA ======================== -->
-    <section class="section-manifesto" id="historia">
-      <div class="container manifesto-container">
-        
-        <!-- Trajetória Biográfica -->
-        <div class="bio-column">
-          <span class="section-kicker">TRAJETÓRIA</span>
-          <h2 class="section-title">QUEM É ANA ELISA</h2>
-          
-          <p class="bio-lead">
-            Ana Elisa Santos Silva representa a força e a coragem da juventude trabalhadora que não se cala diante das injustiças.
-          </p>
-
-          <div class="bio-items">
-            <div class="bio-item">
-              <span class="bio-bullet">01</span>
-              <div>
-                <strong>Origem em Divinópolis</strong>
-                <p>Nascida no centro-oeste mineiro, conhece de perto a realidade e as necessidades do interior de Minas Gerais.</p>
-              </div>
-            </div>
-
-            <div class="bio-item">
-              <span class="bio-bullet">02</span>
-              <div>
-                <strong>Liderança Estudantil</strong>
-                <p>Construiu sua militância nas salas de aula e nas ruas, lutando por assistência estudantil, permanência e passe livre.</p>
-              </div>
-            </div>
-
-            <div class="bio-item">
-              <span class="bio-bullet">03</span>
-              <div>
-                <strong>Compromisso Popular</strong>
-                <p>Candidata a Deputada Federal pela Federação Brasil da Esperança para garantir votos firmes a favor do povo em Brasília.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Manifesto Editorial -->
-        <div class="manifesto-column">
-          <div class="manifesto-card">
-            <span class="manifesto-tag">CARTA MANIFESTO</span>
-            
-            <h3 class="manifesto-heading">Minas quer mais. E nós também!</h3>
-            
-            <div class="manifesto-text">
-              <p>
-                Minas Gerais é a terra de quem acorda antes do sol nascer, enfrenta transporte lotado, estuda à noite e não aceita que o seu futuro seja decidido por gabinetes distantes.
-              </p>
-              <p>
-                Não podemos aceitar uma política de retrocesso que precariza o trabalho, corta verbas da educação e fecha os olhos para a juventude. <strong>Minas é muito maior que isso.</strong>
-              </p>
-              <p>
-                Minas quer mais respeito: por isso estamos firmes na luta pelo <strong>Fim da Escala 6x1</strong>, porque quem trabalha tem direito ao descanso, à família e ao estudo.
-              </p>
-              <blockquote class="manifesto-quote">
-                “Nós não vamos para Brasília apenas para ocupar espaço: vamos para abrir caminhos para o povo mineiro.”
-              </blockquote>
-            </div>
-
-            <div class="manifesto-sign">
-              <strong>Ana Elisa · 1331</strong>
-              <span>Candidata a Deputada Federal</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================== COMPROMISSOS POLÍTICOS ======================== -->
-    <section class="section-compromissos" id="compromissos">
+  <main>
+    <!-- ======================== HERO PLACEHOLDER (FASE 1) ======================== -->
+    <section class="section-foundation hero-placeholder" id="inicio">
       <div class="container">
-        <div class="section-header">
-          <span class="section-kicker">COMPROMISSOS</span>
-          <h2 class="section-title">O QUE VAMOS DEFENDER EM BRASÍLIA</h2>
-          <p class="section-subtitle">Pautas prioritárias para o desenvolvimento social e a classe trabalhadora mineira.</p>
-        </div>
-
-        <div class="compromissos-grid">
-          
-          <div class="compromisso-item">
-            <span class="comp-num">01</span>
-            <div class="comp-content">
-              <h3>Trabalho digno e Fim da Escala 6x1</h3>
-              <p>Apoio à redução da jornada sem redução de salário, garantindo tempo de descanso, estudo e convivência familiar para quem trabalha.</p>
-            </div>
-          </div>
-
-          <div class="compromisso-item">
-            <span class="comp-num">02</span>
-            <div class="comp-content">
-              <h3>Educação pública, IFs e Passe Livre</h3>
-              <p>Defesa de investimentos nas Universidades e IFs de Minas Gerais, ampliação de bolsas de permanência e apoio ao passe livre estudantil.</p>
-            </div>
-          </div>
-
-          <div class="compromisso-item">
-            <span class="comp-num">03</span>
-            <div class="comp-content">
-              <h3>Mulheres e Igualdade Racial</h3>
-              <p>Fortalecimento de políticas contra a violência de gênero, incentivo ao crédito para mulheres chefes de família e defesa das cotas.</p>
-            </div>
-          </div>
-
-          <div class="compromisso-item">
-            <span class="comp-num">04</span>
-            <div class="comp-content">
-              <h3>Cultura Viva, Meio Ambiente e Interior</h3>
-              <p>Descentralização de recursos culturais federais para o interior de MG, proteção das bacias hídricas e apoio à agricultura familiar.</p>
-            </div>
-          </div>
-
-        </div>
+        <span class="kicker-placeholder">FASE 1 · FOUNDATION TÉCNICA</span>
+        <h1 class="title-placeholder">Ana Elisa 1331</h1>
+        <p class="lead-placeholder">
+          Base estrutural semântica, acessível e responsiva construída para suportar as próximas etapas do projeto.
+        </p>
       </div>
     </section>
 
-    <!-- ======================== MOBILIZAÇÃO (WHATSAPP REAL) ======================== -->
-    <section class="section-mobilizacao" id="mobilizacao">
-      <div class="container mobilizacao-container">
-        
-        <div class="mob-info">
-          <span class="section-kicker">MOBILIZAÇÃO POPULAR</span>
-          <h2 class="section-title">FAÇA PARTE DO TIME DA ANA</h2>
-          <p class="mob-lead">
-            Nossa campanha é feita de pessoa para pessoa. Preencha seus dados para enviar uma mensagem direta para a coordenação de voluntários pelo WhatsApp.
-          </p>
-          <div class="mob-note">
-            <strong>Transparência e Respeito:</strong>
-            <p>Seus dados são utilizados exclusivamente para conectar você à mobilização voluntária da campanha.</p>
-          </div>
-        </div>
-
-        <div class="mob-card">
-          <form id="mobForm" class="mob-form" novalidate>
-            <div class="form-field">
-              <label for="mobNome">Seu Nome *</label>
-              <input type="text" id="mobNome" placeholder="Como quer ser chamado?" required>
-            </div>
-
-            <div class="form-field">
-              <label for="mobCidade">Sua Cidade em Minas Gerais *</label>
-              <input type="text" id="mobCidade" placeholder="Ex: Divinópolis, Belo Horizonte..." required>
-            </div>
-
-            <div class="form-field">
-              <label for="mobInteresse">Como prefere ajudar?</label>
-              <select id="mobInteresse">
-                <option value="Divulgar nas redes sociais">Divulgar nas redes sociais</option>
-                <option value="Receber adesivos e santinhos">Receber adesivos e santinhos</option>
-                <option value="Ajudar a organizar na minha cidade">Ajudar a organizar na minha cidade</option>
-                <option value="Apoio geral">Apoio geral</option>
-              </select>
-            </div>
-
-            <button type="submit" class="btn btn-whatsapp">
-              <span>ENVIAR MENSAGEM NO WHATSAPP</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.078-1.748-.383-1.424-.59-2.34-2.036-2.411-2.13-.071-.094-.579-.771-.579-1.47 0-.7.366-1.044.496-1.187.13-.143.285-.179.38-.179.095 0 .19.001.272.006.088.004.204-.033.32.245.12.288.409.998.445 1.071.036.073.06.159.012.256-.048.096-.072.155-.144.239-.072.083-.151.185-.216.249-.072.072-.147.151-.063.295.084.144.373.615.8 1 .552.496 1.018.65 1.162.723.144.072.228.06.312-.036.084-.096.36-419.456-.563.096-.144.192-.12.324-.072.132.048.837.395.981.467.144.072.24.108.276.168.036.06.036.348-.108.753z"/></svg>
-            </button>
-          </form>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================== MATERIAIS OFICIAIS ======================== -->
-    <section class="section-materiais" id="materiais">
+    <!-- ======================== HISTÓRIA PLACEHOLDER ======================== -->
+    <section class="section-foundation" id="historia">
       <div class="container">
-        <div class="section-header">
-          <span class="section-kicker">DOWNLOADS</span>
-          <h2 class="section-title">MATERIAIS OFICIAIS</h2>
-          <p class="section-subtitle">Arquivos disponíveis para download e compartilhamento.</p>
-        </div>
+        <h2>História e Trajetória</h2>
+        <p>Espaço reservado para a trajetória biográfica e a Carta Manifesto da candidata.</p>
+      </div>
+    </section>
 
-        <div class="materiais-list">
-          
-          <div class="material-row">
-            <div class="mat-info">
-              <strong>Santinho Digital Oficial</strong>
-              <span>Imagem formatada para WhatsApp e Stories (JPG)</span>
-            </div>
-            <a href="./assets/img/og-share.jpg" download="santinho-ana-elisa-1331.jpg" class="btn-download">Baixar arquivo</a>
-          </div>
+    <!-- ======================== COMPROMISSOS PLACEHOLDER ======================== -->
+    <section class="section-foundation" id="compromissos">
+      <div class="container">
+        <h2>Compromissos Políticos</h2>
+        <p>Espaço reservado para a apresentação dos eixos programáticos aprovados.</p>
+      </div>
+    </section>
 
-          <div class="material-row">
-            <div class="mat-info">
-              <strong>Logotipo Oficial da Campanha</strong>
-              <span>Arquivo com fundo transparente em alta resolução (PNG)</span>
-            </div>
-            <a href="./assets/img/ana-elisa-logo.png" download="logo-ana-elisa-1331.png" class="btn-download">Baixar arquivo</a>
-          </div>
+    <!-- ======================== MOBILIZAÇÃO PLACEHOLDER ======================== -->
+    <section class="section-foundation" id="mobilizacao">
+      <div class="container">
+        <h2>Mobilização Popular</h2>
+        <p>Espaço reservado para o canal direto de mobilização e conexão de voluntários via WhatsApp.</p>
+      </div>
+    </section>
 
-          <div class="material-row">
-            <div class="mat-info">
-              <strong>Foto Oficial da Candidata</strong>
-              <span>Retrato em alta definição para peças gráficas (PNG)</span>
-            </div>
-            <a href="./assets/img/ana-elisa-foto.png" download="foto-ana-elisa-1331.png" class="btn-download">Baixar arquivo</a>
-          </div>
-
-        </div>
+    <!-- ======================== MATERIAIS PLACEHOLDER ======================== -->
+    <section class="section-foundation" id="materiais">
+      <div class="container">
+        <h2>Materiais Oficiais</h2>
+        <p>Arquivos oficiais para download e distribuição digital.</p>
       </div>
     </section>
   </main>
 
-  <!-- ======================== FOOTER INSTITUCIONAL ======================== -->
+  <!-- ======================== FOOTER BÁSICO ======================== -->
   <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-brand">
@@ -308,7 +109,7 @@
       <div class="container">
         <p><strong>ELEIÇÃO 2026 · ANA ELISA SANTOS SILVA · DEPUTADA FEDERAL</strong></p>
         <p>CNPJ DA CAMPANHA: 68.344.770/0001-95 | FEDERAÇÃO BRASIL DA ESPERANÇA (PT / PCdoB / PV)</p>
-        <p>Encarregado de Dados (LGPD): Brenno Adrian Simões dos Reis Dias · <a href="#topo">Voltar ao topo ↑</a></p>
+        <p>Encarregado de Proteção de Dados (LGPD): Brenno Adrian Simões dos Reis Dias · <a href="#topo">Voltar ao topo ↑</a></p>
       </div>
     </div>
   </footer>
