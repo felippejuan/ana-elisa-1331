@@ -1,6 +1,6 @@
 /* ============================================================================
-   FASE 4: MOBILIZAÇÃO REAL VIA WHATSAPP (SEM ARMAZENAMENTO)
-   CSS limpo, formulário acessível e tokens padronizados
+   FASE 5: RELEASE CANDIDATE - ANA ELISA 1331
+   CSS unificado, tokens fechados, design editorial, responsivo e limpo
    ============================================================================ */
 
 :root {
@@ -490,7 +490,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   line-height: 1.52;
 }
 
-/* ==================== 4. FASE 4: MOBILIZAÇÃO REAL (WHATSAPP) ==================== */
+/* ==================== 4. MOBILIZAÇÃO REAL (CONGELADO) ==================== */
 .section-mobilizacao {
   padding: var(--section-space) 0;
   background-color: var(--cream);
@@ -566,7 +566,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--gray-form-border);
   padding: 0 14px;
-  font-size: 16px; /* Evita auto-zoom no iOS */
+  font-size: 16px;
   background: #FDFCFA;
   color: var(--brown-dark);
   outline: none;
@@ -613,23 +613,70 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   transform: translateY(-1px);
 }
 
-/* ==================== 5. PLACEHOLDERS PRÓXIMAS FASES ==================== */
-.section-foundation {
+/* ==================== 5. MATERIAIS OFICIAIS (FASE 5) ==================== */
+.section-materiais {
   padding: var(--section-space) 0;
-  border-bottom: 1px solid var(--gray-border);
+  background-color: var(--brown);
 }
 
-.section-foundation h2 {
-  font-family: var(--font-title);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+.materiais-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 820px;
+}
+
+.material-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-card);
+  padding: 20px 24px;
+  gap: 20px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.material-row:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(252, 189, 0, 0.25);
+}
+
+.mat-info strong {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
   color: var(--white);
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
-.section-foundation p {
-  font-size: 1rem;
+.mat-info span {
+  font-size: 0.86rem;
   color: var(--cream);
-  opacity: 0.85;
+  opacity: 0.8;
+}
+
+.btn-download {
+  background-color: var(--yellow);
+  color: var(--brown-dark);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 10px 22px;
+  border-radius: var(--radius-button);
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-download:hover {
+  background-color: var(--white);
+  transform: translateY(-1px);
 }
 
 /* ==================== 6. FOOTER ==================== */
@@ -797,6 +844,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
   .manifesto-card, .mob-card {
     padding: 24px 18px;
+  }
+
+  .material-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+  }
+
+  .btn-download {
+    width: 100%;
+    min-height: 44px;
   }
 
   .footer-container {
