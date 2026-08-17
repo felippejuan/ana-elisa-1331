@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (burgerBtn && navLinks) {
     burgerBtn.addEventListener('click', () => {
       navLinks.classList.toggle('active');
+      burgerBtn.classList.toggle('active');
       const isExpanded = navLinks.classList.contains('active');
       burgerBtn.setAttribute('aria-expanded', isExpanded);
     });
@@ -17,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        burgerBtn.classList.remove('active');
+        burgerBtn.setAttribute('aria-expanded', 'false');
       });
     });
   }
