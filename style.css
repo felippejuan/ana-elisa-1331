@@ -1,6 +1,6 @@
 /* ============================================================================
-   FASE 3: CONTEÚDO EDITORIAL (HISTÓRIA, MANIFESTO & COMPROMISSOS)
-   Estilização limpa, sem emojis, sem excesso de cards e com tokens fechados
+   FASE 4: MOBILIZAÇÃO REAL VIA WHATSAPP (SEM ARMAZENAMENTO)
+   CSS limpo, formulário acessível e tokens padronizados
    ============================================================================ */
 
 :root {
@@ -15,6 +15,7 @@
   --white: #FFFFFF;
   --gray-border: rgba(255, 255, 255, 0.12);
   --gray-light: #ECE4DA;
+  --gray-form-border: #D8CCC0;
   
   /* Tokens Estruturais */
   --content-width: 1180px;
@@ -22,6 +23,7 @@
   --section-space: clamp(3.5rem, 7vw, 6rem);
   
   /* Raios de Borda */
+  --radius-sm: 6px;
   --radius-card: 14px;
   --radius-button: 999px;
 
@@ -65,10 +67,15 @@ a {
   transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
+button, input, select {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
 /* Acessibilidade: Foco de Teclado Visível */
-a:focus-visible, button:focus-visible {
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
   outline: 3px solid var(--yellow);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
 /* Container Único */
@@ -197,7 +204,7 @@ a:focus-visible, button:focus-visible {
   transition: all 0.2s ease;
 }
 
-/* ==================== 1. HERO (FASE 2 CONGELADA) ==================== */
+/* ==================== 1. HERO (CONGELADO) ==================== */
 .hero-section {
   background-color: var(--red);
   padding: clamp(3rem, 6vw, 5rem) 0;
@@ -276,7 +283,7 @@ a:focus-visible, button:focus-visible {
   display: block;
 }
 
-/* ==================== 2. HISTÓRIA & MANIFESTO EDITORIAL (FASE 3) ==================== */
+/* ==================== 2. HISTÓRIA & MANIFESTO EDITORIAL (CONGELADO) ==================== */
 .section-manifesto {
   padding: var(--section-space) 0;
   background-color: var(--brown);
@@ -426,7 +433,7 @@ a:focus-visible, button:focus-visible {
   font-weight: 700;
 }
 
-/* ==================== 3. COMPROMISSOS POLÍTICOS (FASE 3) ==================== */
+/* ==================== 3. COMPROMISSOS (CONGELADO) ==================== */
 .section-compromissos {
   padding: var(--section-space) 0;
   background-color: var(--brown-dark);
@@ -483,7 +490,130 @@ a:focus-visible, button:focus-visible {
   line-height: 1.52;
 }
 
-/* ==================== 4. PLACEHOLDERS PRÓXIMAS FASES ==================== */
+/* ==================== 4. FASE 4: MOBILIZAÇÃO REAL (WHATSAPP) ==================== */
+.section-mobilizacao {
+  padding: var(--section-space) 0;
+  background-color: var(--cream);
+  color: var(--brown-dark);
+}
+
+.mobilizacao-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.mob-info .section-title {
+  color: var(--red);
+}
+
+.mob-lead {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  margin: 14px 0 20px;
+  color: #4A2B1D;
+}
+
+.mob-note {
+  background: #FFF0E5;
+  border-left: 3.5px solid var(--red);
+  padding: 14px 18px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.mob-note strong {
+  font-size: 0.88rem;
+  color: var(--red);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.mob-note p {
+  font-size: 0.84rem;
+  color: #5C3A29;
+  line-height: 1.45;
+}
+
+.mob-card {
+  background-color: var(--white);
+  border-radius: var(--radius-card);
+  padding: clamp(24px, 4vw, 36px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--gray-form-border);
+}
+
+.mob-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-field label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+}
+
+.form-field input, .form-field select {
+  height: 48px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--gray-form-border);
+  padding: 0 14px;
+  font-size: 16px; /* Evita auto-zoom no iOS */
+  background: #FDFCFA;
+  color: var(--brown-dark);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-field input:focus, .form-field select:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(222, 0, 33, 0.12);
+}
+
+.form-field input.input-error {
+  border-color: var(--red);
+}
+
+.field-error {
+  font-size: 0.76rem;
+  color: var(--red);
+  font-weight: 600;
+  min-height: 16px;
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: #FFFFFF;
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 14px;
+  border-radius: var(--radius-button);
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  min-height: 50px;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+/* ==================== 5. PLACEHOLDERS PRÓXIMAS FASES ==================== */
 .section-foundation {
   padding: var(--section-space) 0;
   border-bottom: 1px solid var(--gray-border);
@@ -502,7 +632,7 @@ a:focus-visible, button:focus-visible {
   opacity: 0.85;
 }
 
-/* ==================== 5. FOOTER ==================== */
+/* ==================== 6. FOOTER ==================== */
 .site-footer {
   background-color: var(--brown-dark);
   border-top: 2px solid var(--red);
@@ -602,7 +732,7 @@ a:focus-visible, button:focus-visible {
     margin-top: 6px;
   }
 
-  /* Hero Mobile Intencional */
+  /* Hero Mobile */
   .hero-section {
     padding: 2.5rem 0 3.5rem;
   }
@@ -654,8 +784,8 @@ a:focus-visible, button:focus-visible {
     min-height: 48px;
   }
 
-  /* Fase 3 no Mobile: Empilhamento Limpo */
-  .manifesto-container {
+  /* Seções empilhadas */
+  .manifesto-container, .mobilizacao-container {
     grid-template-columns: 1fr;
     gap: 28px;
   }
@@ -665,7 +795,7 @@ a:focus-visible, button:focus-visible {
     gap: 16px;
   }
 
-  .manifesto-card {
+  .manifesto-card, .mob-card {
     padding: 24px 18px;
   }
 

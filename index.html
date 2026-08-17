@@ -9,7 +9,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ana Elisa 1331 · Deputada Federal">
-  <meta property="og:description" content="Uma nova voz de Minas Gerais no Congresso Nacional. Conheça nossa trajetória, manifesto e compromissos.">
+  <meta property="og:description" content="Uma nova voz de Minas Gerais no Congresso Nacional. Conheça nossa trajetória, manifesto, compromissos e participe da mobilização.">
   <meta property="og:image" content="./assets/img/og-share.jpg">
 
   <!-- Favicon -->
@@ -24,7 +24,7 @@
 </head>
 <body>
 
-  <!-- ======================== HEADER BÁSICO LIMPO ======================== -->
+  <!-- ======================== HEADER ======================== -->
   <header class="site-header" id="topo">
     <div class="container header-container">
       <a href="#topo" class="header-logo" aria-label="Ana Elisa 1331 - Início">
@@ -48,7 +48,7 @@
   </header>
 
   <main>
-    <!-- ======================== HERO SECTION (FASE 2 CONGELADA) ======================== -->
+    <!-- ======================== HERO SECTION (CONGELADO) ======================== -->
     <section class="hero-section" id="inicio">
       <div class="container hero-container">
         
@@ -88,11 +88,10 @@
       </div>
     </section>
 
-    <!-- ======================== FASE 3: HISTÓRIA & MANIFESTO EDITORIAL ======================== -->
+    <!-- ======================== HISTÓRIA & MANIFESTO EDITORIAL (CONGELADO) ======================== -->
     <section class="section-manifesto" id="historia">
       <div class="container manifesto-container">
         
-        <!-- Coluna da Esquerda: Trajetória Biográfica -->
         <div class="bio-column">
           <span class="section-kicker">TRAJETÓRIA</span>
           <h2 class="section-title">QUEM É ANA ELISA</h2>
@@ -128,7 +127,6 @@
           </div>
         </div>
 
-        <!-- Coluna da Direita: Manifesto Editorial em Bloco Creme -->
         <div class="manifesto-column">
           <div class="manifesto-card">
             <span class="manifesto-tag">CARTA MANIFESTO</span>
@@ -161,7 +159,7 @@
       </div>
     </section>
 
-    <!-- ======================== FASE 3: COMPROMISSOS POLÍTICOS ======================== -->
+    <!-- ======================== COMPROMISSOS POLÍTICOS (CONGELADO) ======================== -->
     <section class="section-compromissos" id="compromissos">
       <div class="container">
         <div class="section-header">
@@ -208,15 +206,57 @@
       </div>
     </section>
 
-    <!-- ======================== PLACEHOLDERS PARA AS PRÓXIMAS FASES ======================== -->
-    <section class="section-foundation" id="mobilizacao">
-      <div class="container">
-        <span class="section-kicker">FASE 4 · EM BREVE</span>
-        <h2>Mobilização Popular</h2>
-        <p>Espaço reservado para o canal direto de mobilização e conexão de voluntários via WhatsApp.</p>
+    <!-- ======================== FASE 4: MOBILIZAÇÃO REAL (WHATSAPP SEM ARMAZENAMENTO) ======================== -->
+    <section class="section-mobilizacao" id="mobilizacao">
+      <div class="container mobilizacao-container">
+        
+        <div class="mob-info">
+          <span class="section-kicker">MOBILIZAÇÃO POPULAR</span>
+          <h2 class="section-title">FAÇA PARTE DO TIME DA ANA</h2>
+          <p class="mob-lead">
+            Nossa campanha é construída de pessoa para pessoa. Preencha seus dados para gerar uma mensagem e conversar diretamente com a nossa coordenação de voluntários pelo WhatsApp.
+          </p>
+          <div class="mob-note">
+            <strong>Privacidade e Transparência:</strong>
+            <p>Os dados preenchidos abaixo <strong>não são armazenados em nenhum servidor</strong>. Ao clicar no botão, uma mensagem será gerada no seu próprio WhatsApp para envio direto.</p>
+          </div>
+        </div>
+
+        <div class="mob-card">
+          <form id="mobForm" class="mob-form" novalidate>
+            <div class="form-field">
+              <label for="mobNome">Seu Nome *</label>
+              <input type="text" id="mobNome" placeholder="Como você quer ser chamado?" required>
+              <span class="field-error" id="errNome" aria-live="polite"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="mobCidade">Sua Cidade em Minas Gerais *</label>
+              <input type="text" id="mobCidade" placeholder="Ex: Divinópolis, Belo Horizonte, Juiz de Fora..." required>
+              <span class="field-error" id="errCidade" aria-live="polite"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="mobInteresse">Como prefere somar com a campanha?</label>
+              <select id="mobInteresse">
+                <option value="Divulgar materiais nas redes sociais">Divulgar materiais nas redes sociais</option>
+                <option value="Receber adesivos e santinhos físicos">Receber adesivos e santinhos físicos</option>
+                <option value="Ajudar a organizar na minha cidade/faculdade">Ajudar a organizar na minha cidade/faculdade</option>
+                <option value="Apoio voluntário geral">Apoio voluntário geral</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-whatsapp" id="btnMobSubmit">
+              <span>ENVIAR MENSAGEM NO WHATSAPP</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.078-1.748-.383-1.424-.59-2.34-2.036-2.411-2.13-.071-.094-.579-.771-.579-1.47 0-.7.366-1.044.496-1.187.13-.143.285-.179.38-.179.095 0 .19.001.272.006.088.004.204-.033.32.245.12.288.409.998.445 1.071.036.073.06.159.012.256-.048.096-.072.155-.144.239-.072.083-.151.185-.216.249-.072.072-.147.151-.063.295.084.144.373.615.8 1 .552.496 1.018.65 1.162.723.144.072.228.06.312-.036.084-.096.36-419.456-.563.096-.144.192-.12.324-.072.132.048.837.395.981.467.144.072.24.108.276.168.036.06.036.348-.108.753z"/></svg>
+            </button>
+          </form>
+        </div>
+
       </div>
     </section>
 
+    <!-- ======================== PLACEHOLDERS PRÓXIMAS FASES ======================== -->
     <section class="section-foundation" id="materiais">
       <div class="container">
         <span class="section-kicker">FASE 5 · EM BREVE</span>
