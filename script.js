@@ -1,5 +1,5 @@
 // ============================================================================
-// SCRIPT DE INTERATIVIDADE - ANA ELISA 1331
+// INTERATIVIDADE OFICIAL - ANA ELISA 1331
 // ============================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
       burgerBtn.setAttribute('aria-expanded', isExpanded);
     });
 
-    // Close menu when clicking link
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -22,7 +21,89 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. City Autocomplete (Principais Cidades de MG)
+  // 2. Mapa Interativo de Minas Gerais
+  const regionData = {
+    'centro-oeste': {
+      title: 'Centro-Oeste (Terra da Ana)',
+      cities: 'Divinópolis, Itaúna, Nova Serrana, Formiga, Pará de Minas, Lagoa da Prata, Santo Antônio do Monte, Bom Despacho...',
+      zap: 'https://chat.whatsapp.com/sample-centro-oeste'
+    },
+    'rmbh': {
+      title: 'Belo Horizonte & Região Metropolitana',
+      cities: 'Belo Horizonte, Contagem, Betim, Ribeirão das Neves, Santa Luzia, Ibirité, Sabará, Nova Lima, Vespasiano, Sete Lagoas...',
+      zap: 'https://chat.whatsapp.com/sample-rmbh'
+    },
+    'norte': {
+      title: 'Norte de Minas',
+      cities: 'Montes Claros, Janaúba, Januária, Pirapora, Salinas, Brasília de Minas, São Francisco, Taiobeiras...',
+      zap: 'https://chat.whatsapp.com/sample-norte'
+    },
+    'triangulo': {
+      title: 'Triângulo & Alto Paranaíba',
+      cities: 'Uberlândia, Uberaba, Patos de Minas, Araguari, Ituiutaba, Frutal, Monte Carmelo, Unaí, Paracatu...',
+      zap: 'https://chat.whatsapp.com/sample-triangulo'
+    },
+    'zona-mata': {
+      title: 'Zona da Mata & Vertentes',
+      cities: 'Juiz de Fora, Viçosa, Ubá, São João del-Rei, Muriaé, Barbacena, Santos Dumont, Ponte Nova, Cataguases...',
+      zap: 'https://chat.whatsapp.com/sample-zona-mata'
+    },
+    'sul': {
+      title: 'Sul de Minas',
+      cities: 'Pouso Alegre, Poços de Caldas, Varginha, Lavras, Passos, Alfenas, Itajubá, Três Corações, São Lourenço...',
+      zap: 'https://chat.whatsapp.com/sample-sul'
+    },
+    'vales': {
+      title: 'Vales do Jequitinhonha & Mucuri',
+      cities: 'Teófilo Otoni, Diamantina, Almenara, Pedra Azul, Araçuaí, Itaobim, Jequitinhonha, Capelinha...',
+      zap: 'https://chat.whatsapp.com/sample-vales'
+    },
+    'rio-doce': {
+      title: 'Vale do Aço & Rio Doce',
+      cities: 'Governador Valadares, Ipatinga, Coronel Fabriciano, Timóteo, Caratinga, Guanhães, Mantena...',
+      zap: 'https://chat.whatsapp.com/sample-rio-doce'
+    }
+  };
+
+  const mapPaths = document.querySelectorAll('.map-path');
+  const pillTriggers = document.querySelectorAll('.pill-trigger');
+  const regionTitle = document.getElementById('regionTitle');
+  const regionCities = document.getElementById('regionCities');
+  const regionZapBtn = document.getElementById('regionZapBtn');
+
+  function selectRegion(regionId) {
+    const data = regionData[regionId];
+    if (!data) return;
+
+    mapPaths.forEach(p => p.classList.remove('active'));
+    pillTriggers.forEach(t => t.classList.remove('active'));
+
+    const activePath = document.querySelector(`.map-path[data-region="${regionId}"]`);
+    const activePill = document.querySelector(`.pill-trigger[data-region="${regionId}"]`);
+
+    if (activePath) activePath.classList.add('active');
+    if (activePill) activePill.classList.add('active');
+
+    if (regionTitle) regionTitle.textContent = data.title;
+    if (regionCities) regionCities.textContent = data.cities;
+    if (regionZapBtn) regionZapBtn.href = data.zap;
+  }
+
+  mapPaths.forEach(path => {
+    path.addEventListener('click', () => {
+      const reg = path.getAttribute('data-region');
+      selectRegion(reg);
+    });
+  });
+
+  pillTriggers.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const reg = btn.getAttribute('data-region');
+      selectRegion(reg);
+    });
+  });
+
+  // 3. City Autocomplete (Principais Cidades de MG)
   const mgCities = [
     "Belo Horizonte", "Divinópolis", "Juiz de Fora", "Contagem", "Uberlândia", "Betim",
     "Montes Claros", "Ribeirão das Neves", "Governador Valadares", "Ipatinga", "Sete Lagoas",
@@ -73,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Form Submit Handler
+  // 4. Form Submit Handler
   const timeForm = document.getElementById('timeForm');
   const formSuccess = document.getElementById('formSuccess');
 
@@ -88,13 +169,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Simulate success
       timeForm.hidden = true;
       if (formSuccess) formSuccess.hidden = false;
     });
   }
 
-  // 4. WhatsApp Phone Mask
+  // 5. WhatsApp Phone Mask
   const telInput = document.getElementById('whatsapp');
   if (telInput) {
     telInput.addEventListener('input', (e) => {
@@ -110,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Agenda Filters
+  // 6. Agenda Filters
   const filterBtns = document.querySelectorAll('.filter-btn');
   const agendaItems = document.querySelectorAll('.agenda-item');
 
@@ -131,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Materials Carousel Navigation
+  // 7. Materials Carousel Navigation
   const matTrack = document.getElementById('matTrack');
   const matPrev = document.getElementById('matPrev');
   const matNext = document.getElementById('matNext');
@@ -156,7 +236,7 @@ window.copyZapText = function(btn) {
     const originalText = btn.textContent;
     btn.textContent = 'COPIADO! ✓';
     btn.style.background = '#FCBD00';
-    btn.style.color = '#31170C';
+    btn.style.color = '#1E0C05';
 
     setTimeout(() => {
       btn.textContent = originalText;
