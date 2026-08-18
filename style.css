@@ -45,6 +45,7 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
   font-size: 16px;
   width: 100%;
@@ -52,6 +53,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   font-family: var(--font-body);
   background-color: var(--brown);
   color: var(--cream);
@@ -340,6 +342,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 .section-title {
+  overflow-wrap: break-word;
+  word-break: break-word;
   font-family: var(--font-title);
   font-weight: 900;
   font-size: clamp(1.8rem, 3.5vw, 2.5rem);
@@ -847,6 +851,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 .material-body {
+  overflow-x: hidden;
   padding: 22px;
   display: flex;
   flex-direction: column;
@@ -929,6 +934,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 .mob-info .section-title {
+  overflow-wrap: break-word;
+  word-break: break-word;
   color: var(--red);
 }
 
