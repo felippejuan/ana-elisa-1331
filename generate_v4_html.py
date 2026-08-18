@@ -1,0 +1,461 @@
+import json
+
+paths = json.load(open('svg_pure_regions.json', encoding='utf-8'))
+
+# Construct the full index.html containing:
+# 1. Header (sticky com compensação)
+# 2. Hero (oficial com 1331)
+# 3. Bio & Carta Manifesto
+# 4. Mapa Territorial com as 8 macrorregiões coloridas interativas
+# 5. Compromissos com a Carteira de Trabalho
+# 6. Central de Materiais em Cards Controlados
+# 7. Mobilização
+# 8. Footer
+
+html_content = f'''<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ana Elisa 1331 · Deputada Federal · Minas Gerais</title>
+  <meta name="description" content="Minas quer mais. Conheça Ana Elisa (1331), estudante universitária e liderança jovem de Divinópolis. Uma nova voz de Minas no Congresso.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ana Elisa 1331 · Deputada Federal">
+  <meta property="og:description" content="Uma nova voz de Minas Gerais no Congresso Nacional. Conheça nossa trajetória, manifesto, mapa de diálogo e compromissos.">
+  <meta property="og:image" content="./assets/img/og-share.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/img/ana-elisa-logo.png">
+
+  <!-- Tipografia Oficial: Syne + Plus Jakarta Sans + Open Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- ======================== HEADER ======================== -->
+  <header class="site-header" id="topo">
+    <div class="container header-container">
+      <a href="#topo" class="header-logo" aria-label="Ana Elisa 1331 - Início">
+        <img src="./assets/img/ana-elisa-logo.png" alt="Ana Elisa 1331" class="logo-img">
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir navegação" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="header-nav" id="headerNav" aria-label="Navegação principal">
+        <a href="#historia" class="nav-link">História</a>
+        <a href="#territorio" class="nav-link">Território</a>
+        <a href="#compromissos" class="nav-link">Compromissos</a>
+        <a href="#materiais" class="nav-link">Materiais</a>
+        <a href="#mobilizacao" class="nav-link">Mobilização</a>
+        <a href="#mobilizacao" class="btn-nav-action">Fazer parte</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================== 1. HERO SECTION ======================== -->
+    <section class="hero-section" id="inicio">
+      <div class="container hero-container">
+        
+        <div class="hero-image-wrapper">
+          <img 
+            src="./assets/img/ana-elisa-foto.png" 
+            alt="Retrato oficial de Ana Elisa, candidata a Deputada Federal por Minas Gerais" 
+            class="hero-photo"
+            loading="eager"
+            fetchpriority="high"
+          >
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-slogan">
+            <img src="./assets/img/slogan.png" alt="Minas quer mais" class="slogan-img">
+          </div>
+
+          <h1 class="hero-title">
+            Ana Elisa <span class="badge-numero-hero">1331</span>
+          </h1>
+
+          <p class="hero-tagline">
+            Uma nova voz de Minas no Congresso.
+          </p>
+
+          <p class="hero-description">
+            Mulher negra, 21 anos, estudante universitária e filha de Divinópolis. Pronta para defender a classe trabalhadora, o fim da escala 6x1 e a educação pública em Brasília ao lado do presidente Lula.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#historia" class="btn btn-secondary">Conheça a Ana</a>
+            <a href="#mobilizacao" class="btn btn-primary">Faça parte</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================== 2. HISTÓRIA & MANIFESTO EDITORIAL ======================== -->
+    <section class="section-manifesto" id="historia">
+      <div class="container manifesto-container">
+        
+        <div class="bio-column">
+          <span class="section-kicker">TRAJETÓRIA</span>
+          <h2 class="section-title">QUEM É ANA ELISA</h2>
+          
+          <p class="bio-lead">
+            Ana Elisa Santos Silva representa a renovação popular, trazendo a vivência do interior e a firmeza da juventude trabalhadora.
+          </p>
+
+          <div class="bio-items">
+            <div class="bio-item">
+              <span class="bio-bullet">01</span>
+              <div>
+                <strong>Raízes no Interior</strong>
+                <p>Nascida e criada em Divinópolis, vivenciou na pele os desafios dos serviços públicos e a realidade de quem depende do transporte e da saúde do SUS.</p>
+              </div>
+            </div>
+
+            <div class="bio-item">
+              <span class="bio-bullet">02</span>
+              <div>
+                <strong>Militância Estudantil</strong>
+                <p>Estudante universitária atuante na luta por permanência, ampliação das bolsas e passe livre para a juventude não abandonar as salas de aula.</p>
+              </div>
+            </div>
+
+            <div class="bio-item">
+              <span class="bio-bullet">03</span>
+              <div>
+                <strong>Coragem em Brasília</strong>
+                <p>Candidata a Deputada Federal pela Federação Brasil da Esperança para garantir votos firmes pelas causas populares na Câmara dos Deputados.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="manifesto-column">
+          <div class="manifesto-card">
+            <span class="manifesto-tag">CARTA MANIFESTO</span>
+            
+            <h3 class="manifesto-heading">Minas quer mais. E nós também!</h3>
+            
+            <div class="manifesto-text">
+              <p>
+                Minas Gerais é o estado de quem acorda antes do sol nascer, enfrenta ônibus lotado, estuda à noite e não aceita que o seu futuro seja decidido por gabinetes distantes.
+              </p>
+              <p>
+                Não podemos nos conformar com uma política que precariza o trabalho, corta investimentos na educação e vira as costas para a juventude. <strong>Minas é muito maior que o retrocesso.</strong>
+              </p>
+              <p>
+                Minas quer respeito e dignidade: por isso assumimos o compromisso prioritário com o <strong>Fim da Escala 6x1</strong>, porque quem trabalha precisa de tempo para viver, descansar e conviver com a família.
+              </p>
+              
+              <blockquote class="manifesto-quote">
+                “Nós não vamos para Brasília apenas para ocupar espaço: vamos para abrir caminhos para o povo mineiro.”
+              </blockquote>
+            </div>
+
+            <div class="manifesto-sign">
+              <strong>Ana Elisa · 1331</strong>
+              <span>Candidata a Deputada Federal</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================== 3. MAPA TERRITORIAL DE MINAS GERAIS ======================== -->
+    <section class="section-territorio" id="territorio">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-kicker">MINAS É NOSSO TERRITÓRIO</span>
+          <h2 class="section-title">EXPLORE AS 8 MACRORREGIÕES DE MINAS</h2>
+          <p class="section-subtitle">Passe o mouse ou selecione uma região no mapa para conhecer as principais pautas populares e conectar-se ao grupo regional no WhatsApp.</p>
+        </div>
+
+        <div class="map-interactive-box">
+          
+          <!-- SVG MAP -->
+          <div class="map-wrapper">
+            <svg class="map-svg" viewBox="0 0 600 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa territorial de Minas Gerais com as 8 macrorregiões">
+              <path id="reg-norte" class="map-region" data-region="norte" tabindex="0" role="button" aria-label="Região Norte de Minas" d="{paths.get('norte', '')}" />
+              <path id="reg-vales" class="map-region" data-region="vales" tabindex="0" role="button" aria-label="Região dos Vales" d="{paths.get('vales', '')}" />
+              <path id="reg-triangulo-alto-paranaiba" class="map-region" data-region="triangulo-alto-paranaiba" tabindex="0" role="button" aria-label="Região Triângulo e Alto Paranaíba" d="{paths.get('triangulo-alto-paranaiba', '')}" />
+              <path id="reg-centro-oeste" class="map-region" data-region="centro-oeste" tabindex="0" role="button" aria-label="Região Centro-Oeste" d="{paths.get('centro-oeste', '')}" />
+              <path id="reg-rmbh" class="map-region" data-region="rmbh" tabindex="0" role="button" aria-label="Região Metropolitana de Belo Horizonte" d="{paths.get('rmbh', '')}" />
+              <path id="reg-vale-do-aco-rio-doce" class="map-region" data-region="vale-do-aco-rio-doce" tabindex="0" role="button" aria-label="Região Vale do Aço e Rio Doce" d="{paths.get('vale-do-aco-rio-doce', '')}" />
+              <path id="reg-zona-da-mata-vertentes" class="map-region" data-region="zona-da-mata-vertentes" tabindex="0" role="button" aria-label="Região Zona da Mata e Vertentes" d="{paths.get('zona-da-mata-vertentes', '')}" />
+              <path id="reg-sul" class="map-region" data-region="sul" tabindex="0" role="button" aria-label="Região Sul de Minas" d="{paths.get('sul', '')}" />
+            </svg>
+          </div>
+
+          <!-- PAINEL CONTEXTUAL DINÂMICO & CHIPS -->
+          <div class="map-info-panel">
+            
+            <div class="info-card is-initial" id="infoCard">
+              <span class="info-badge" id="infoBadge">SELEÇÃO REGIONAL</span>
+              <h3 class="info-title" id="infoTitle">Selecione uma Região</h3>
+              <p class="info-desc" id="infoDesc">
+                Passe o mouse sobre o mapa ou clique em uma das regiões abaixo para ver as pautas prioritárias e conectar-se à campanha no seu território.
+              </p>
+              <div class="info-pautas" id="infoPautas" style="display: none;"></div>
+
+              <a href="#" target="_blank" rel="noopener" class="btn-regional-wa" id="btnWaRegional">
+                <span>ENTRAR NO GRUPO DO WHATSAPP</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.078-1.748-.383-1.424-.59-2.34-2.036-2.411-2.13-.071-.094-.579-.771-.579-1.47 0-.7.366-1.044.496-1.187.13-.143.285-.179.38-.179.095 0 .19.001.272.006.088.004.204-.033.32.245.12.288.409.998.445 1.071.036.073.06.159.012.256-.048.096-.072.155-.144.239-.072.083-.151.185-.216.249-.072.072-.147.151-.063.295.084.144.373.615.8 1 .552.496 1.018.65 1.162.723.144.072.228.06.312-.036.084-.096.36-419.456-.563.096-.144.192-.12.324-.072.132.048.837.395.981.467.144.072.24.108.276.168.036.06.036.348-.108.753z"/></svg>
+              </a>
+            </div>
+
+            <!-- CHIPS -->
+            <div>
+              <p class="chips-section-title">Ou escolha pelos botões:</p>
+              <div class="region-chips" id="regionChips">
+                <button class="chip-btn" data-region="centro-oeste">Centro-Oeste</button>
+                <button class="chip-btn" data-region="rmbh">RMBH (Capital & Metropol.)</button>
+                <button class="chip-btn" data-region="triangulo-alto-paranaiba">Triângulo / Alto Paranaíba</button>
+                <button class="chip-btn" data-region="sul">Sul de Minas</button>
+                <button class="chip-btn" data-region="zona-da-mata-vertentes">Zona da Mata / Vertentes</button>
+                <button class="chip-btn" data-region="vale-do-aco-rio-doce">Vale do Aço / Rio Doce</button>
+                <button class="chip-btn" data-region="norte">Norte de Minas</button>
+                <button class="chip-btn" data-region="vales">Vales (Jequitinhonha & Mucuri)</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================== 4. COMPROMISSOS & CARTEIRA DE TRABALHO ======================== -->
+    <section class="section-compromissos" id="compromissos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">COMPROMISSOS</span>
+          <h2 class="section-title">O QUE VAMOS DEFENDER EM BRASÍLIA</h2>
+          <p class="section-subtitle">Pautas prioritárias para os direitos da classe trabalhadora e o desenvolvimento social de Minas Gerais.</p>
+        </div>
+
+        <div class="compromissos-integrated-layout">
+          
+          <!-- Foto Editorial da Carteira de Trabalho -->
+          <div class="carteira-visual-col">
+            <div class="carteira-card-box">
+              <picture>
+                <source srcset="./assets/img/ana-elisa-carteira-trabalho.webp" type="image/webp">
+                <img 
+                  src="./assets/img/ana-elisa-carteira-trabalho.jpg" 
+                  alt="Ana Elisa segurando a Carteira de Trabalho em defesa do Fim da Escala 6x1 e dos direitos dos trabalhadores" 
+                  class="carteira-img"
+                  loading="lazy"
+                  width="800"
+                  height="1200"
+                >
+              </picture>
+              <div class="carteira-caption">
+                <strong>Trabalho digno, salário justo e tempo para viver.</strong>
+                <span>Pelo Fim da Escala 6x1 e proteção previdenciária.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quatro Compromissos Políticos -->
+          <div class="compromissos-cards-col">
+            <div class="compromisso-item">
+              <span class="comp-num">01</span>
+              <div class="comp-content">
+                <h3>Trabalho Digno & Fim da Escala 6x1</h3>
+                <p>Apoio integral à redução da jornada de trabalho sem redução salarial e garantia de proteção previdenciária e direitos para trabalhadores de aplicativos.</p>
+              </div>
+            </div>
+
+            <div class="compromisso-item">
+              <span class="comp-num">02</span>
+              <div class="comp-content">
+                <h3>Educação Pública, IFs & Passe Livre</h3>
+                <p>Destinação de recursos federais para as Universidades e IFs de Minas Gerais, ampliação do Pé-de-Meia e criação do Fundo Nacional de Apoio ao Passe Livre Estudantil.</p>
+              </div>
+            </div>
+
+            <div class="compromisso-item">
+              <span class="comp-num">03</span>
+              <div class="comp-content">
+                <h3>Mulheres & Igualdade Racial</h3>
+                <p>Fortalecimento das Casas da Mulher Brasileira em MG, linhas de crédito facilitadas para mulheres chefes de família e defesa intransigente das cotas no serviço público.</p>
+              </div>
+            </div>
+
+            <div class="compromisso-item">
+              <span class="comp-num">04</span>
+              <div class="comp-content">
+                <h3>Cultura Viva, Meio Ambiente & Interior</h3>
+                <p>Descentralização de recursos culturais para os municípios do interior, fiscalização rigorosa da mineração com proteção das bacias hídricas e apoio à agricultura familiar.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 5. CENTRAL DE MATERIAIS DE CAMPANHA (FASE 4 V3) ======================== -->
+    <section class="section-materiais" id="materiais">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-kicker">CENTRAL DE CAMPANHA</span>
+          <h2 class="section-title">MATERIAIS PARA BAIXAR E COMPARTILHAR</h2>
+          <p class="section-subtitle">Baixe as peças oficiais para divulgar nas redes, imprimir santinhos ou enviar pacotes de figurinhas no WhatsApp.</p>
+        </div>
+
+        <div class="materiais-grid">
+          
+          <!-- Card 1: Pacote de Figurinhas do WhatsApp -->
+          <div class="material-card">
+            <div class="material-preview-box">
+              <img src="./assets/img/preview-stickers.jpg" alt="Pacote de figurinhas oficiais de Ana Elisa 1331 para WhatsApp" class="material-thumb">
+            </div>
+            <div class="material-body">
+              <span class="material-cat">WhatsApp</span>
+              <h3 class="material-title">Pacote de Figurinhas</h3>
+              <p class="material-desc">Figurinhas animadas e estáticas da Ana Elisa 1331 para mobilizar nos grupos da faculdade e da família.</p>
+              <span class="material-meta">Sticker.ly · Pacote Oficial</span>
+              <a href="https://sticker.ly/s/anaelisa1331" target="_blank" rel="noopener" class="btn btn-material-action">
+                <span>ABRIR NO STICKER.LY</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Santinho Digital Oficial -->
+          <div class="material-card">
+            <div class="material-preview-box">
+              <img src="./assets/img/og-share.jpg" alt="Santinho digital oficial Ana Elisa 1331" class="material-thumb contain-mode">
+            </div>
+            <div class="material-body">
+              <span class="material-cat">Redes Sociais & Zap</span>
+              <h3 class="material-title">Santinho Digital Oficial</h3>
+              <p class="material-desc">Imagem oficial em alta resolução com foto, propostas e número 1331 para envio em grupos e stories.</p>
+              <span class="material-meta">JPEG · 1200 x 630 px</span>
+              <a href="./assets/img/og-share.jpg" download="santinho-ana-elisa-1331.jpg" class="btn btn-material-action">
+                <span>BAIXAR SANTINHO</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Logotipo Oficial Vetorial/PNG -->
+          <div class="material-card">
+            <div class="material-preview-box neutral-bg">
+              <img src="./assets/img/ana-elisa-logo.png" alt="Logotipo oficial de Ana Elisa 1331" class="material-thumb contain-mode">
+            </div>
+            <div class="material-body">
+              <span class="material-cat">Identidade Visual</span>
+              <h3 class="material-title">Logotipo Oficial (PNG)</h3>
+              <p class="material-desc">Marca oficial com fundo transparente para criação de cartazes, cards de apoio e impressos.</p>
+              <span class="material-meta">PNG Transparente · 1200 x 630 px</span>
+              <a href="./assets/img/ana-elisa-logo.png" download="logo-ana-elisa-1331.png" class="btn btn-material-action">
+                <span>BAIXAR LOGOTIPO</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================== 6. MOBILIZAÇÃO REAL ======================== -->
+    <section class="section-mobilizacao" id="mobilizacao">
+      <div class="container mobilizacao-container">
+        
+        <div class="mob-info">
+          <span class="section-kicker">MOBILIZAÇÃO POPULAR</span>
+          <h2 class="section-title">FAÇA PARTE DO TIME DA ANA</h2>
+          <p class="mob-lead">
+            Nossa campanha é construída de pessoa para pessoa. Preencha seus dados para gerar uma mensagem e conversar diretamente com a nossa coordenação de voluntários pelo WhatsApp.
+          </p>
+          <div class="mob-note">
+            <strong>Privacidade e Transparência:</strong>
+            <p>Os dados preenchidos abaixo <strong>não são armazenados em nenhum servidor</strong>. Ao clicar no botão, uma mensagem será gerada no seu próprio WhatsApp para envio direto.</p>
+          </div>
+        </div>
+
+        <div class="mob-card">
+          <form id="mobForm" class="mob-form" novalidate>
+            <div class="form-field">
+              <label for="mobNome">Seu Nome *</label>
+              <input type="text" id="mobNome" placeholder="Como você quer ser chamado?" required>
+              <span class="field-error" id="errNome" aria-live="polite"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="mobCidade">Sua Cidade em Minas Gerais *</label>
+              <input type="text" id="mobCidade" placeholder="Ex: Divinópolis, Belo Horizonte, Juiz de Fora..." required>
+              <span class="field-error" id="errCidade" aria-live="polite"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="mobInteresse">Como prefere somar com a campanha?</label>
+              <select id="mobInteresse">
+                <option value="Divulgar materiais nas redes sociais">Divulgar materiais nas redes sociais</option>
+                <option value="Receber adesivos e santinhos físicos">Receber adesivos e santinhos físicos</option>
+                <option value="Ajudar a organizar na minha cidade/faculdade">Ajudar a organizar na minha cidade/faculdade</option>
+                <option value="Apoio voluntário geral">Apoio voluntário geral</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-whatsapp" id="btnMobSubmit">
+              <span>ENVIAR MENSAGEM NO WHATSAPP</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.078-1.748-.383-1.424-.59-2.34-2.036-2.411-2.13-.071-.094-.579-.771-.579-1.47 0-.7.366-1.044.496-1.187.13-.143.285-.179.38-.179.095 0 .19.001.272.006.088.004.204-.033.32.245.12.288.409.998.445 1.071.036.073.06.159.012.256-.048.096-.072.155-.144.239-.072.083-.151.185-.216.249-.072.072-.147.151-.063.295.084.144.373.615.8 1 .552.496 1.018.65 1.162.723.144.072.228.06.312-.036.084-.096.36-419.456-.563.096-.144.192-.12.324-.072.132.048.837.395.981.467.144.072.24.108.276.168.036.06.036.348-.108.753z"/></svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <img src="./assets/img/ana-elisa-logo.png" alt="Ana Elisa 1331" class="footer-logo">
+        <p>Minas quer mais dignidade, juventude e coragem no Congresso Nacional.</p>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/anaelisast" target="_blank" rel="noopener" class="social-btn">Instagram: @anaelisast</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p><strong>ELEIÇÃO 2026 · ANA ELISA SANTOS SILVA · DEPUTADA FEDERAL</strong></p>
+        <p>CNPJ DA CAMPANHA: 68.344.770/0001-95 | FEDERAÇÃO BRASIL DA ESPERANÇA (PT / PCdoB / PV)</p>
+        <p>Encarregado de Proteção de Dados (LGPD): Brenno Adrian Simões dos Reis Dias · <a href="#topo">Voltar ao topo ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>'''
+
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print('SUCCESS: Updated index.html with integrated map and materials sections.')

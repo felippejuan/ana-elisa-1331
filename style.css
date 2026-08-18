@@ -1,12 +1,12 @@
 /* ============================================================================
-   ESTILOS OFICIAIS - FASE 2 V3 (CARTEIRA DE TRABALHO & CORREÇÃO ESTRUTURAL MOBILE)
-   CSS unificado, tokens fechados, 100% de viewport preenchida sem clipping
+   ESTILOS OFICIAIS - FASE 4 V3 (MATERIAIS DE CAMPANHA & MAPA INTEGRADO)
+   CSS unificado, tokens fechados, proporções controladas em cards e sem overflow
    ============================================================================ */
 
 :root {
   /* Tokens de Cores */
   --red: #DE0021;
-  --red-dark: #A50018;
+  --red-hover: #FF1A3C;
   --yellow: #FCBD00;
   --brown: #31170C;
   --brown-dark: #1E0C05;
@@ -16,6 +16,7 @@
   --gray-border: rgba(255, 255, 255, 0.12);
   --gray-light: #ECE4DA;
   --gray-form-border: #D8CCC0;
+  --green-wa: #25D366;
   
   /* Tokens Estruturais */
   --content-width: 1180px;
@@ -83,13 +84,12 @@ button, input, select {
   font-size: 1rem;
 }
 
-/* Acessibilidade: Foco de Teclado Visível */
+/* Acessibilidade */
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
   outline: 3px solid var(--yellow);
   outline-offset: 2px;
 }
 
-/* Container Único com Preenchimento Total da Largura */
 .container {
   width: 100%;
   max-width: var(--content-width);
@@ -97,6 +97,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   margin-right: auto;
   padding-left: var(--gutter);
   padding-right: var(--gutter);
+}
+
+.text-center {
+  text-align: center;
 }
 
 /* ==================== BOTOES DO SISTEMA ==================== */
@@ -310,7 +314,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   display: block;
 }
 
-/* ==================== 2. HISTÓRIA & MANIFESTO EDITORIAL ==================== */
+/* ==================== 2. HISTÓRIA & MANIFESTO ==================== */
 .section-manifesto {
   padding: var(--section-space) 0;
   background-color: var(--brown);
@@ -461,10 +465,217 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight: 700;
 }
 
-/* ==================== 3. COMPROMISSOS & CARTEIRA DE TRABALHO (FASE 2 V3) ==================== */
-.section-compromissos {
+/* ==================== 3. MAPA TERRITORIAL ==================== */
+.section-territorio {
   padding: var(--section-space) 0;
   background-color: var(--brown-dark);
+  border-top: 1px solid rgba(252, 189, 0, 0.15);
+  border-bottom: 1px solid rgba(252, 189, 0, 0.15);
+  width: 100%;
+}
+
+.map-interactive-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(252, 189, 0, 0.2);
+  border-radius: 18px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 530px;
+  margin: 0 auto;
+}
+
+.map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 16px 32px rgba(0,0,0,0.6));
+}
+
+.map-region {
+  stroke: rgba(255, 255, 255, 0.25);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  opacity: 0.92;
+}
+
+/* Cores das 8 Macrorregiões */
+#reg-centro-oeste            { fill: #DE0021; }
+#reg-rmbh                    { fill: #D97706; }
+#reg-triangulo-alto-paranaiba { fill: #2563EB; }
+#reg-sul                     { fill: #059669; }
+#reg-zona-da-mata-vertentes  { fill: #7C3AED; }
+#reg-vale-do-aco-rio-doce    { fill: #0891B2; }
+#reg-norte                   { fill: #E11D48; }
+#reg-vales                   { fill: #CA8A04; }
+
+.map-region:hover, .map-region:focus {
+  opacity: 1;
+  stroke: #FFFFFF;
+  stroke-width: 2.8;
+  filter: brightness(1.2) drop-shadow(0 0 14px rgba(255, 255, 255, 0.6));
+  outline: none;
+}
+
+.map-region.active {
+  opacity: 1;
+  stroke: #FFFFFF;
+  stroke-width: 3.2;
+  filter: brightness(1.25) drop-shadow(0 0 16px rgba(252, 189, 0, 0.8));
+}
+
+.map-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 1.6rem;
+  border-left: 5px solid var(--yellow);
+  transition: all 0.3s ease;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-card.is-initial {
+  text-align: center;
+  border-left: 5px solid rgba(252, 189, 0, 0.4);
+  align-items: center;
+}
+
+.info-badge {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.4rem;
+}
+
+.info-title {
+  font-family: var(--font-title);
+  font-size: 1.55rem;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+.info-desc {
+  font-size: 0.95rem;
+  color: var(--cream);
+  line-height: 1.6;
+}
+
+.info-pautas {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.14);
+  font-size: 0.9rem;
+  color: #EBDCCB;
+  line-height: 1.55;
+}
+
+.info-pautas strong {
+  color: var(--yellow);
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-ui);
+}
+
+.btn-regional-wa {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--green-wa);
+  color: #FFFFFF;
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 13px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-top: 1.2rem;
+  border: 0;
+  cursor: pointer;
+  width: 100%;
+  min-height: 48px;
+  transition: filter 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.25);
+}
+
+.btn-regional-wa.visible {
+  display: inline-flex;
+}
+
+.btn-regional-wa:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.chips-section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: var(--font-ui);
+}
+
+.region-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--cream);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chip-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--white);
+}
+
+.chip-btn.active {
+  background: var(--yellow);
+  color: var(--brown-dark);
+  border-color: var(--yellow);
+  font-weight: 800;
+}
+
+/* ==================== 4. COMPROMISSOS ==================== */
+.section-compromissos {
+  padding: var(--section-space) 0;
+  background-color: var(--brown);
   width: 100%;
 }
 
@@ -481,7 +692,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   max-width: 640px;
 }
 
-/* Composição Desktop: Foto (40%) / Compromissos (60%) */
+.section-header.text-center .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .compromissos-integrated-layout {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
@@ -573,7 +788,127 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   line-height: 1.5;
 }
 
-/* ==================== 4. MOBILIZAÇÃO REAL ==================== */
+/* ==================== 5. CENTRAL DE MATERIAIS EM CARDS CONTROLADOS ==================== */
+.section-materiais {
+  padding: var(--section-space) 0;
+  background-color: var(--brown-dark);
+  border-top: 1px solid rgba(252, 189, 0, 0.15);
+  width: 100%;
+}
+
+.materiais-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 3vw, 2rem);
+  margin-top: 36px;
+}
+
+.material-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(252, 189, 0, 0.2);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.material-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  border-color: var(--yellow);
+}
+
+.material-preview-box {
+  height: 180px;
+  background-color: #120602;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.material-preview-box.neutral-bg {
+  background-color: #241108;
+}
+
+.material-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.material-thumb.contain-mode {
+  object-fit: contain;
+}
+
+.material-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.material-cat {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.material-title {
+  font-family: var(--font-ui);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.material-desc {
+  font-size: 0.88rem;
+  color: var(--cream);
+  opacity: 0.85;
+  line-height: 1.45;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+.material-meta {
+  font-size: 0.76rem;
+  color: #C2B4A5;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.btn-material-action {
+  background-color: var(--yellow);
+  color: var(--brown-dark);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.84rem;
+  padding: 11px 18px;
+  border-radius: var(--radius-button);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  width: 100%;
+}
+
+.btn-material-action:hover {
+  background-color: var(--white);
+}
+
+/* ==================== 6. MOBILIZAÇÃO ==================== */
 .section-mobilizacao {
   padding: var(--section-space) 0;
   background-color: var(--cream);
@@ -684,7 +1019,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 .btn-whatsapp {
-  background-color: #25D366;
+  background-color: var(--green-wa);
   color: #FFFFFF;
   font-family: var(--font-ui);
   font-weight: 800;
@@ -708,7 +1043,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   transform: translateY(-1px);
 }
 
-/* ==================== 5. FOOTER ==================== */
+/* ==================== 7. FOOTER ==================== */
 .site-footer {
   background-color: var(--brown-dark);
   border-top: 2px solid var(--red);
@@ -774,7 +1109,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* ============================================================================
    RESPONSIVO INTENCIONAL PARA MOBILE (< 768px)
-   Correção da faixa vazia, largura total 100% e centralização
    ============================================================================ */
 @media (max-width: 767px) {
   .menu-toggle {
@@ -876,26 +1210,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     min-height: 48px;
   }
 
-  /* Seções empilhadas com preenchimento total */
-  .manifesto-container, .mobilizacao-container, .compromissos-integrated-layout {
+  /* Seções empilhadas */
+  .manifesto-container, .map-interactive-box, .mobilizacao-container, .compromissos-integrated-layout {
     grid-template-columns: 1fr;
     gap: 28px;
     width: 100%;
   }
 
-  /* Carteira no Mobile: 85% centralizada */
   .carteira-card-box {
     max-width: 85%;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .compromissos-cards-col {
-    width: 100%;
+  .materiais-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .compromisso-item {
-    padding: 18px 20px;
+  .material-preview-box {
+    height: 200px;
   }
 
   .manifesto-card, .mob-card {
